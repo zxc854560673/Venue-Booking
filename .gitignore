@@ -1,0 +1,6 @@
+.jshintrc
+
+# visual studio
+.vs
+packages
+*.sln
