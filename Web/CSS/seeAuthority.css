@@ -21,7 +21,7 @@ body{
 	background-color: rgb(172,172,172);
 }
 #headerLeft h1{
-	font-family: "MicrosoftYaHeu";
+	font-family: "MicrosoftYaHei";
 	font-weight: bold;
 	font-size: 22px;
 	color: rgb(54,54,54);
@@ -35,7 +35,7 @@ body{
 	width: 80px;
 	height: 50px;
 	margin-left: 588px;
-	font-family: "MicrosoftYaHeu";
+	font-family: "MicrosoftYaHei";
 	font-size: 16px;
 	color: rgb(0,0,0);
 	background-color: rgb(255,255,255);
@@ -67,12 +67,12 @@ body{
 #headerRight div a{
 	text-decoration: none;
 	font-size: 16px;
-	font-family: "MicrosoftYaHeu";
+	font-family: "MicrosoftYaHei";
 	color: rgb(54,54,54);
     line-height: 50px;
 }
 #Slider{
-	width: 100%;
+/*	width: 100%;*/
 	height:150px;
 	background:url("../images/banner.jpg");
 	position: relative;
@@ -91,7 +91,7 @@ body{
 #Circle + div{
 	margin-top: 48px;
 	margin-left:40px;
-	font-family: "MicrosoftYaHeu";
+	font-family: "MicrosoftYaHei";
 	color: rgb(255,255,255);
 	display: inline-block;
 	vertical-align: top;
@@ -130,7 +130,7 @@ body{
 	margin: 0px;
 	padding: 0px;
 /*	position: relative;*/
-    font-family: "MicrosoftYaHeu"; 
+    font-family: "MicrosoftYaHei"; 
 }
 #giveAuthority img{
 	margin-top: 15px;
@@ -150,89 +150,321 @@ body{
 	padding: 0px;
 }
 #line2 img{
-	margin: 15px 0px 20px 360px;
+	margin: 15px 0px 0px 360px;
 }
-#Teacher{
-	margin-bottom: 15px; 
+#Select{
+  width:1160px;
+  height:51px;
+	margin: 5px auto 0px auto; 
+  position:relative;
 }
-#Teacher img{
-	margin: 0px 5px 0px 380px;
-	display: inline-block;
-}
-#Teacher p{
-    margin: 0px;
-    padding: 0px;
-    font-weight: bold;
+#Waiting{
+    margin:0px;
+    padding:0px;
     font-size: 16px;
     color: #363636; 
     display: inline-block;
-    vertical-align: top;
+    vertical-align:top;
+    font-family:"MicrosoftYaHei";
+}
+#Pass{
+    margin:0px;
+    margin-left:30px;
+    padding: 0px;
+    font-size: 16px;
+    color: #363636; 
+    display: inline-block;
+    vertical-align:top;
+    font-family:"MicrosoftYaHei";
+}
+#unPass{
+    margin:0px;
+    margin-left:30px;
+    padding: 0px;
+    font-size: 16px;
+    color: #363636; 
+    display: inline-block;
+    vertical-align:top;
+    font-family:"MicrosoftYaHeiLight";
+}
+#Select img{
+  position:absolute;
+  left:0px;
+  bottom:20px;
+  display:inline-block;
 }
 #Table_1{
-	margin-left: 380px;
+	margin: 0px;
+	padding: 0px;
 }
 #Classroom{
-	font-family: "MicrosoftYaHeu";
+	margin: 0 auto;
+	font-family: "MicrosoftYaHei";
 	font-size: 14px; 
 /*	width:100%;*/
 	border: solid 1px #e1e1e1;
 	border-collapse: collapse;
 	text-align: center;
 }
-#header th{
-   width: 196px;
-   height: 28px;
+#header :first-child{
+   width: 176px;
+   height: 58px;
    background-color: #31c978;
-   font-weight: bold; 
-   color: #363636;
+   color: #ffffff;
    vertical-align: middle;
    border: solid 1px #e1e1e1;
 }
-#header :nth-child(4){
-   width: 346px;
-   height: 28px;
+#header :nth-child(2){
+   width: 146px;
+   height: 58px;
    background-color: #31c978;
-   font-weight: bold; 
-   color: #363636;
+   color: #ffffff;
+   vertical-align: middle;
+   border: solid 1px #e1e1e1;	
+}
+#header :nth-child(3){
+   width: 181px;
+   height: 58px;
+   background-color: #31c978;
+   color: #ffffff;
+   vertical-align: middle;
+   border: solid 1px #e1e1e1;	
+}
+#header :nth-child(4){
+   width: 116px;
+   height: 58px;
+   background-color: #31c978;
+   color: #ffffff;
+   vertical-align: middle;
+   border: solid 1px #e1e1e1;	
+}
+#header :nth-child(5){
+   width: 66px;
+   height: 58px;
+   background-color: #31c978;
+   color: #ffffff;
+   vertical-align: middle;
+   border: solid 1px #e1e1e1;	
+}
+#header :nth-child(6){
+   width: 301px;
+   height: 58px;
+   background-color: #31c978;
+   color: #ffffff;
    vertical-align: middle;
    border: solid 1px #e1e1e1;	
 }
 #header :last-child{
-   width: 206px;
-   height: 30px;
+   width: 155px;
+   height: 28px;
    background-color: #31c978;
-   font-weight: bold; 
-   color: #363636;
+   color: #ffffff;
    vertical-align: middle;
    border: solid 1px #e1e1e1;	
 }
-.All{
-   width: 196px;
+#header_2 th{
+   width: 76px;
    height: 29px;
+   background-color: #31c978;
+   color: #ffffff;
+   vertical-align: middle;
+   border: solid 1px #e1e1e1;	
+}
+.sumbitTime{
+   width: 196px;
+   height: 39px;
+   font-family:"MicrosoftYaHeiLight";
+   background-color: #ffffff;
+   color: #363636;
+   vertical-align: middle;
+   border: solid 1px #e1e1e1;
+}
+.classPlace{
+   width: 146px;
+   height: 39px;
+   font-family:"MicrosoftYaHeiLight";
+   background-color: #ffffff;
+   color: #363636;
+   vertical-align: middle;
+   border: solid 1px #e1e1e1;
+}
+.applyTime{
+   width: 181px;
+   height: 39px;
+   font-family:"MicrosoftYaHeiLight";
+   background-color: #ffffff;
+   color: #363636;
+   vertical-align: middle;
+   border: solid 1px #e1e1e1;
+}
+.Office{
+   width: 106px;
+   height: 39px;
+   font-family:"MicrosoftYaHeiLight";
+   background-color: #ffffff;
+   color: #363636;
+   vertical-align: middle;
+   border: solid 1px #e1e1e1;
+}
+.Applicant{
+   width: 66px;
+   height: 39px;
+   font-family:"MicrosoftYaHeiLight";
    background-color: #ffffff;
    color: #363636;
    vertical-align: middle;
    border: solid 1px #e1e1e1;
 }
 .Reason{
-   width: 246px;
-   height: 29px;
+   width: 301px;
+   height: 39px;
+   font-family:"MicrosoftYaHeiLight";
    background-color: #ffffff;
    color: #363636;
    vertical-align: middle;
    border: solid 1px #e1e1e1;
 }
-.authorityAcross{
-	width: 206px;
-   height: 29px;
+.authorityAcross_0{
+	width: 76px;
+   height: 39px;
    background-color: #ffffff;
    color: #363636;
    vertical-align: middle;
    border: solid 1px #e1e1e1;
+   font-family:"MicrosoftYaHeiLight";
+}
+.authorityAcross_1{
+	width: 76px;
+   height: 39px;
+   background-color: #ffffff;
+   color: #363636;
+   vertical-align: middle;
+   border: solid 1px #e1e1e1;
+   font-family:"MicrosoftYaHeiLight";
+}
+#pageTurning{
+  margin:30px auto auto 0;
+  padding:0px;
+  text-align: center;
+}
+#Page{
+  list-style-type:none;
+  font-family:"MicrosoftYaHeiLight";
+}
+#Page li{
+  display:inline-block;
+}
+#Page li a{
+  text-decoration:none;
+  color:#363636;
+  font-size:14px;
+}
+#Index{
+  display:inline-block;
+  margin:0px;
+  padding:0px;
+}
+#prePage{
+  display:inline-block;
+  margin:0px 16px 0px 16px;
+  padding:0px;
+}
+#one{
+  display:inline-block;
+  margin:0px 10px 0px 0px;
+  padding:0px;
+}
+#two{
+  display:inline-block;
+  margin:0px 10px 0px 0px;
+  padding:0px;
+}
+#three{
+  display:inline-block;
+  margin:0px 10px 0px 0px;
+  padding:0px;
+}
+#four{
+  display:inline-block;
+  margin:0px 10px 0px 0px;
+  padding:0px;
+}
+#Five{
+  display:inline-block;
+  margin:0px 10px 0px 0px;
+  padding:0px;
+}
+#More{
+  display:inline-block;
+  margin:0px 16px 0px 0px;
+  padding:0px;
+}
+#nextPage{
+  display:inline-block;
+  margin:0px 16px 0px 0px;
+  padding:0px;
+}
+#lastPage{
+  display:inline-block;
+  margin:0px 22px 0px 0px;
+  padding:0px;
+}
+#buttomSearch{
+  display:inline-block;
+  margin:0px;
+  padding:0px;
+}
+#buttomSearch span{
+  display:inline-block;
+  margin:0px;
+  padding:0px;
+  font-size:14px;
+  font-family:"MicrosoftYaHeiLight";
+  color:#363636;
+}
+#buttomSearch span input[type="text"]{
+  width:48px;
+  height:23px;
+  border-radius:5px;
+  border:1px solid #e1e1e1;
+  display:inline-block;
+  margin:0px 5px 0px 5px;
+  padding:0px;
+}
+#buttomSearch span input[type="button"]{
+    width: 48px;
+    height: 23px;
+    margin-left:5px;
+    font-family: "MicrosoftYaHei";
+    font-size: 14px;
+    color:#ffffff; 
+    background-color:#31c978;
+    border: 1px solid #31c978;
+    border-radius: 5px;
+    vertical-align: bottom;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #989898!important;
+    text-align:center;
+}
+
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #989898!important;
+    text-align:center;
+}
+
+input:-ms-input-placeholder{
+    color: #989898e!important;
+    text-align:center;
+}
+
+input::-webkit-input-placeholder{
+    color: #989898!important;
+    text-align:center;
 }
 #Footer{
 	margin-top: 100px;
-	width: 100%;
+/*	width: 100%;*/
 	height: 50px;
 	background-color: rgb(78,78,78);
 }
