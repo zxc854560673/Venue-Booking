@@ -4,3 +4,7 @@
 .vs
 packages
 *.sln
+App_Data
+fonts
+Models
+obj
