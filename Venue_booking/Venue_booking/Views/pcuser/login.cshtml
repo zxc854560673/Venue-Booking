@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>管理员登录首面</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS/login.css">
+    <script src="@Url.Content("~/Scripts/jquery-3.1.1.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+</head>
+<body>
+    <div id="content">
+        <div id="title">
+            <h1>青朴课室预约管理员登陆系统</h1>
+        </div>
+        <form action="login" method="post" data-ajax="true">
+            <div id="login-input-box1">
+                <span class="account account_user"></span>
+                <span class="line line_all"></span>
+                <input type="text" placeholder="请输入您的账号" name="user_name"/>
+            </div>
+            <div id="login-input-box2">
+                <span class="password password_password"></span>
+                <span class="line_small line_all"></span>
+                <input type="password" placeholder="请输入您的密码" name="password"/>
+            </div>
+            <div id="forget">
+                <a href="#">忘记密码？</a>
+            </div>
+            <div>
+                <input id="input" value="登陆" type="submit"/>
+            </div>
+        </form>
+        <div id="HowToGet">
+            <a href="#">如何获得管理员账号？</a>
+        </div>
+    </div>
+</body></html>

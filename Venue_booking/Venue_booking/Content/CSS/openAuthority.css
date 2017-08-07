@@ -1,0 +1,366 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+#Header{
+	margin: 0;
+	padding: 0；
+	width:1920px;
+	height: 50px;
+	background-color: rgb(255,255,255);
+}
+#headerLeft{
+	margin-left: 360px;
+	padding: 0;
+	display: inline-block;
+}
+#Logo{
+	width:50px;
+	height: 50px;
+	display: inline-block;
+	background-color: rgb(172,172,172);
+}
+#headerLeft h1{
+	font-family: "MicrosoftYaHeu";
+	font-weight: bold;
+	font-size: 22px;
+	color: rgb(54,54,54);
+	margin-left: 10px;
+	margin-bottom: 14px;
+	margin-top: 14px;
+	display: inline-block;
+	vertical-align: top;
+}
+#right_green{
+	width: 80px;
+	height: 50px;
+	margin-left: 588px;
+	font-family: "MicrosoftYaHeu";
+	font-size: 16px;
+	color: rgb(0,0,0);
+	background-color: rgb(255,255,255);
+	display: inline-block;
+	vertical-align: top;
+}
+#right_green div{
+	line-height: 50px;
+	overflow:hidden;
+    text-align: center;
+}
+#headerRight{
+	width: 280px;
+	height: 50px;
+	margin-left: 18.94px;
+	padding: 0;
+	display: inline-block;
+	vertical-align: top;
+}
+#headerRight div{
+	margin: 0px;
+	padding: 0px;
+	width: 80px;
+	height: 50px;
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+}
+#headerRight div a{
+	text-decoration: none;
+	font-size: 16px;
+	font-family: "MicrosoftYaHeu";
+	color: rgb(54,54,54);
+    line-height: 50px;
+}
+#Slider{
+	width: 1920px;
+	height:150px;
+	background:url("../images/banner.jpg");
+	position: relative;
+}
+#Circle{
+	margin-left: 360px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	width: 120px;
+	height: 120px;
+	background-color: rgb(172,172,172);
+	display: inline-block;
+	border-radius: 50%;	
+	border:solid 1px rgb(255,255,255);
+}
+#Circle + div{
+	margin-top: 48px;
+	margin-left:40px;
+	font-family: "MicrosoftYaHeu";
+	color: rgb(255,255,255);
+	display: inline-block;
+	vertical-align: top;
+}
+#Welcome{
+	font-size: 22px;
+	display: inline-block;
+}
+#Welcome + img{
+	margin-left: 30px;
+	display: inline-block;
+}
+#Edit{
+	margin-left: 5px;
+	font-size: 14px;
+	display: inline-block;
+}
+#line{
+     width: 350px;
+     height: 1px;
+     background-color: rgb(255,255,255);
+     display: inline-block;
+     position: absolute;
+     bottom: 60px;
+     left: 480px;
+}
+#time{
+	font-size: 14px;
+    bottom: 30px;
+    left: 526px;
+	display: inline-block;
+	color: rgb(255,255,255);
+	position: absolute;
+}
+#Content{
+	margin: 0px;
+	padding: 0px;
+/*	position: relative;*/
+    font-family: "MicrosoftYaHeu"; 
+}
+#giveAuthority img{
+	margin-top: 15px;
+	margin-left: 380px;
+	display: inline-block;
+}
+#giveAuthority p{
+	margin:15px 0px 0px 5px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #363636; 
+    display: inline-block;
+    vertical-align: top;
+}
+#line2{
+	margin: 0px;
+	padding: 0px;
+}
+#line2 img{
+	margin: 15px 0px 20px 360px;
+}
+#Teacher{
+	margin-bottom: 15px; 
+}
+#Teacher img{
+	margin: 0px 5px 0px 380px;
+	display: inline-block;
+}
+#Teacher p{
+    margin: 0px;
+    padding: 0px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #363636; 
+    display: inline-block;
+    vertical-align: top;
+}
+#Table_1{
+	margin-left: 380px;
+}
+#Classroom{
+	font-family: "MicrosoftYaHeu";
+	font-size: 14px; 
+/*	width:100%;*/
+	border: solid 1px #e1e1e1;
+	border-collapse: collapse;
+	text-align: center;
+}
+#header :first-child{
+   width: 576px;
+   height: 58px;
+   background-color: #31c978;
+   font-weight: bold; 
+   color: #ffffff;
+   vertical-align: middle;
+   border: solid 1px #e1e1e1;
+}
+#header :nth-child(2){
+   width: 276px;
+   height: 58px;
+   background-color: #31c978;
+   font-weight: bold; 
+   color: #ffffff;
+   vertical-align: middle;
+   border: solid 1px #e1e1e1;	
+}
+#header :last-child{
+   width: 296px;
+   height: 58px;
+   background-color: #31c978;
+   font-weight: bold; 
+   color: #ffffff;
+   vertical-align: middle;
+   border: solid 1px #e1e1e1;	
+}
+.Building{
+   width: 576px;
+   height: 119px;
+   background-color: #ffffff;
+   font-weight: bold; 
+   color: #363636;
+   vertical-align: middle;
+   border: solid 1px #e1e1e1;
+}
+.Room{
+   width: 276px;
+   height: 29px;
+   background-color: #ffffff;
+   font-weight: bold; 
+   color: #363636;
+   vertical-align: middle;
+   border: solid 1px #e1e1e1;
+}
+.authoritySet{
+	width: 296px;
+   height: 29px;
+   background-color: #ffffff;
+   font-weight: bold; 
+   color: #363636;
+   vertical-align: middle;
+   border: solid 1px #e1e1e1;
+}
+/*.authoritySet input{
+	display: none;
+}*/
+#User{
+	margin-top: 15px; 
+}
+#User img{
+	margin: 0px 5px 0px 380px;
+	display: inline-block;
+}
+#User p{
+    margin: 0px;
+    padding: 0px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #363636; 
+    display: inline-block;
+    vertical-align: top;
+}
+#Table_2{
+	margin-left: 380px;
+	margin-top:15px;
+}
+#userManage{
+	font-family: "MicrosoftYaHeu";
+	font-size: 14px; 
+	border: solid 1px #e1e1e1;
+	border-collapse: collapse;
+	text-align: center;
+}
+#header_2 :first-child{
+   width: 576px;
+   height: 58px;
+   background-color: #31c978;
+   font-weight: bold; 
+   color: #ffffff;
+   vertical-align: middle;
+   border: solid 1px #e1e1e1;
+}
+#header_2 :nth-child(2){
+   width: 276px;
+   height: 58px;
+   background-color: #31c978;
+   font-weight: bold; 
+   color: #ffffff;
+   vertical-align: middle;
+   border: solid 1px #e1e1e1;	
+}
+#header_2 :last-child{
+   width: 296px;
+   height: 28px;
+   background-color: #31c978;
+   font-weight: bold; 
+   color: #ffffff;
+   vertical-align: middle;
+   border: solid 1px #e1e1e1;	
+}
+.Rank{
+   width: 98px;
+   height: 28px;
+   background-color: #31c978;
+   font-weight: bold; 
+   color: #ffffff;
+   vertical-align: middle;
+   border: solid 1px #e1e1e1;
+}
+.Type{
+   width: 576px;
+   height: 179px;
+   background-color: #ffffff;
+   font-weight: bold; 
+   color: #363636;
+   vertical-align: middle;
+   border: solid 1px #e1e1e1;
+}
+.Name{
+   width: 276px;
+   height: 29px;
+   background-color: #ffffff;
+   font-weight: bold; 
+   color: #363636;
+   vertical-align: middle;
+   border: solid 1px #e1e1e1;
+}
+.rankStudent{
+   width: 99px;
+   height: 29px;
+   background-color: #ffffff;
+   font-weight: bold; 
+   color: #363636;
+   vertical-align: middle;
+   border: solid 1px #e1e1e1;
+}
+.rankTeacher{
+   width: 99px;
+   height: 29px;
+   background-color: #ffffff;
+   font-weight: bold; 
+   color: #363636;
+   vertical-align: middle;
+   border: solid 1px #e1e1e1;
+}
+.rankManager{
+   width: 99px;
+   height: 29px;
+   background-color: #ffffff;
+   font-weight: bold; 
+   color: #363636;
+   vertical-align: middle;
+   border: solid 1px #e1e1e1;
+}
+#Footer{
+	margin-top: 100px;
+	width: 1920px;
+	height: 50px;
+	background-color: rgb(78,78,78);
+}
+#Footer div{
+	text-align: center;
+	line-height: 50px;
+}
+#Footer div img{
+	display: inline-block;
+    vertical-align: middle;
+}
+#Footer div a{
+	text-decoration: none;
+	color: rgb(255,255,255);
+	font-size: 14px; 
+}
+

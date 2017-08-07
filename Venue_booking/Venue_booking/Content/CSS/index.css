@@ -1,0 +1,313 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+#Header{
+	margin: 0;
+	padding: 0；
+	width:1920px;
+	height: 50px;
+	background-color: rgb(255,255,255);
+}
+#headerLeft{
+	margin-left: 360px;
+	padding: 0;
+	display: inline-block;
+}
+#Logo{
+	width:50px;
+	height: 50px;
+	display: inline-block;
+	background-color: rgb(172,172,172);
+}
+#headerLeft h1{
+	font-family: "MicrosoftYaHeu";
+	font-weight: bold;
+	font-size: 22px;
+	color: rgb(54,54,54);
+	margin-left: 10px;
+	margin-bottom: 14px;
+	margin-top: 14px;
+	display: inline-block;
+	vertical-align: top;
+}
+#right_green{
+	width: 80px;
+	height: 50px;
+	margin-left: 588px;
+	font-family: "MicrosoftYaHeu";
+	font-size: 16px;
+	color: rgb(255,255,255);
+	background-color: rgb(130,204,147);
+	display: inline-block;
+	vertical-align: top;
+}
+#right_green div{
+	line-height: 50px;
+	overflow:hidden;
+    text-align: center;
+}
+#headerRight{
+	width: 280px;
+	height: 50px;
+	margin-left: 18.94px;
+	padding: 0;
+	display: inline-block;
+	vertical-align: top;
+}
+#headerRight div{
+	margin: 0px;
+	padding: 0px;
+	width: 80px;
+	height: 50px;
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+}
+#headerRight div a{
+	text-decoration: none;
+	font-size: 16px;
+	font-family: "MicrosoftYaHeu";
+	color: rgb(54,54,54);
+    line-height: 50px;
+}
+#Slider{
+	width: 1920px;
+	height:150px;
+	background:url("../images/banner.jpg");
+	position: relative;
+}
+#Circle{
+	margin-left: 360px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	width: 120px;
+	height: 120px;
+	background-color: rgb(172,172,172);
+	display: inline-block;
+	border-radius: 50%;	
+	border:solid 1px rgb(255,255,255);
+}
+#Circle + div{
+	margin-top: 48px;
+	margin-left:40px;
+	font-family: "MicrosoftYaHeu";
+	color: rgb(255,255,255);
+	display: inline-block;
+	vertical-align: top;
+}
+#Welcome{
+	font-size: 22px;
+	display: inline-block;
+}
+#Welcome + img{
+	margin-left: 30px;
+	display: inline-block;
+}
+#Edit{
+	margin-left: 5px;
+	font-size: 14px;
+	display: inline-block;
+}
+#line{
+     width: 350px;
+     height: 1px;
+     background-color: rgb(255,255,255);
+     display: inline-block;
+     position: absolute;
+     bottom: 60px;
+     left: 480px;
+}
+#time{
+	font-size: 14px;
+    bottom: 30px;
+    left: 526px;
+	display: inline-block;
+	color: rgb(255,255,255);
+	position: absolute;
+}
+#Content{
+	margin: 0;
+	padding: 0;
+	width: 1920px;
+	height: 710px;
+	background-color: rgb(238,238,238);
+}
+#Online{
+	width:525px;
+	height: 280px;
+    margin: 50px 50px 50px 410px;
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+}
+.Left{
+	width:315px;
+	height:280px;
+	background-color: rgb(255,255,255);
+	display: inline-block;
+	vertical-align: top;
+}
+.Left div{
+	margin-top: 40px;
+	text-align: center;
+	font-size: 32px;
+	color: rgb(85,191,175); 
+}
+.Left img{
+	margin-bottom: 40px;
+	margin-left: 80px;
+	margin-right: 80px;
+	vertical-align: -182px 
+}
+#onlineRight{
+	width: 210px;
+	height: 280px;
+	background-color: rgb(3,195,176);
+    display: inline-block;
+    position: absolute;
+    left: 315px;
+}
+#onlineRight > div span{
+	width: 10px;
+	height: 10px;
+	margin-right: 3px; 
+	background-color:rgb(255,255,255);
+	border-radius: 50%;
+	display: inline-block;
+}
+#onlineRight > div a{
+	text-decoration:none;
+	color: rgb(255,255,255);
+	font-size: 20px;
+}
+.firstRow{
+	position: absolute;
+	left: 28.5px;
+	top: 102px;
+}
+.secondRow{
+	position: absolute;
+	left: 28.5px;
+	bottom: 102px;
+}
+#See{
+	width:525px;
+	height: 280px;
+    margin-top: 50px;
+    display: inline-block;
+    position: relative;
+}
+#seeRight{
+	width: 210px;
+	height: 280px;
+	background-color: rgb(245,185,119);
+    display: inline-block;
+    position: absolute;
+    margin: 0px;
+    left: 315px;
+    top: 0px;
+}
+#seeText{
+	color: rgb(245,185,119);
+}
+#seeRight span{
+	width: 10px;
+	height: 10px;
+	margin-right: 3px; 
+	background-color:rgb(255,255,255);
+	border-radius: 50%;
+	display: inline-block;
+}
+#seeRight a{
+	text-decoration:none;
+	color: rgb(255,255,255);
+	font-size: 20px;
+}
+.onlyRow{
+	position: absolute;
+	left: 28.5px;
+    bottom: 130px;
+}
+#Give{
+	width:525px;
+	height: 280px;
+    margin-left: -900px;
+    margin-top: 330px;
+    display: inline-block;
+    position: relative;
+}
+#givePower{
+	color: rgb(241,210,64);
+}
+#giveRight{
+	width: 210px;
+	height: 280px;
+	background-color: rgb(241,210,64);
+    display: inline-block;
+    position: absolute;
+    left: 315px;
+}
+#giveRight > div span{
+	width: 10px;
+	height: 10px;
+	margin-right: 3px; 
+	background-color:rgb(255,255,255);
+	border-radius: 50%;
+	display: inline-block;
+}
+#giveRight > div a{
+	text-decoration:none;
+	color: rgb(255,255,255);
+	font-size: 20px;
+}
+#myAccount{
+	width:525px;
+	height: 280px;
+    margin-left: 50px;
+    margin-top: 50px;
+    display: inline-block;
+    position: relative;
+}
+#accountText{
+    color: rgb(111,188,288);
+}
+#accountRight{
+	width: 210px;
+	height: 280px;
+	background-color: rgb(111,188,228);
+    display: inline-block;
+    position: absolute;
+    left: 315px;
+}
+#accountRight > div span{
+	width: 10px;
+	height: 10px;
+	margin-right: 3px; 
+	background-color:rgb(255,255,255);
+	border-radius: 50%;
+	display: inline-block;
+}
+#accountRight > div a{
+	text-decoration:none;
+	color: rgb(255,255,255);
+	font-size: 20px;
+}
+#Footer{
+	width: 1920px;
+	height: 50px;
+	background-color: rgb(78,78,78);
+}
+#Footer div{
+	text-align: center;
+	line-height: 50px;
+}
+#Footer div img{
+	display: inline-block;
+    vertical-align: middle;
+}
+#Footer div a{
+	text-decoration: none;
+	color: rgb(255,255,255);
+	font-size: 14px; 
+}
