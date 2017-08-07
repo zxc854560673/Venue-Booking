@@ -233,12 +233,10 @@ input::-webkit-input-placeholder{
 #Table_1{
 	width:1160px;
   margin:0px auto 0px auto;
-  display:none;
 }
 .Classroom{
 	font-family: "MicrosoftYaHeu";
 	font-size: 14px; 
-/*	width:100%;*/
 	border: solid 1px #e1e1e1;
 	border-collapse: collapse;
 	text-align: center;
@@ -259,28 +257,110 @@ input::-webkit-input-placeholder{
   vertical-align: middle;
   border: solid 1px #e1e1e1;
 }
-
-.Room{
-   width: 276px;
-   height: 29px;
-   background-color: #ffffff;
-   font-weight: bold; 
-   color: #363636;
-   vertical-align: middle;
-   border: solid 1px #e1e1e1;
+#Table_2{
+  width:1160px;
+  margin:0px auto 0px auto;
+  display:none;
 }
-.authoritySet{
-	width: 296px;
-   height: 29px;
-   background-color: #ffffff;
-   font-weight: bold; 
-   color: #363636;
-   vertical-align: middle;
-   border: solid 1px #e1e1e1;
+#header_2 th{
+  width: 580px;
+  height: 58px; 
+  background-color: #31c978;
+  color: #ffffff;
+  vertical-align: middle;
+  border: solid 1px #e1e1e1;
 }
-/*.authoritySet input{
-	display: none;
-}*/
+.RoomAuthority{
+  width:580px;
+  height: 38px; 
+  background-color: #ffffff;
+  color: #363636;
+  vertical-align: middle;
+  border: solid 1px #e1e1e1; 
+}
+.authorityAcross{
+  width:580px;
+  height: 38px; 
+  background-color: #ffffff;
+  color: #363636;
+  vertical-align: middle;
+  border: solid 1px #e1e1e1; 
+}
+#Table_3{
+  width:1160px;
+  margin:0px auto 550px auto;
+  display:none;
+}
+#header_3 th{
+  width: 1160px;
+  height: 58px; 
+  background-color: #31c978;
+  color: #ffffff;
+  vertical-align: middle;
+  border: solid 1px #e1e1e1;
+}
+.typeTeacher{
+  width:580px;
+  height: 78px; 
+  background-color: #ffffff;
+  color: #363636;
+  vertical-align: middle;
+  border: solid 1px #e1e1e1; 
+}
+.typeStudent{
+  width:580px;
+  height: 78px; 
+  background-color: #ffffff;
+  color: #363636;
+  vertical-align: middle;
+  border: solid 1px #e1e1e1; 
+}
+#Table_4{
+  width:1160px;
+  margin:0px auto 0px auto;
+  display:none;
+  
+}
+#header_4 th[rowspan="2"]{
+  width: 560px;
+  height: 58px; 
+  background-color: #31c978;
+  color: #ffffff;
+  vertical-align: middle;
+  border: solid 1px #e1e1e1;
+}
+#header_4 th[colspan="3"]{
+  width: 560px;
+  height: 28px; 
+  background-color: #31c978;
+  color: #ffffff;
+  vertical-align: middle;
+  border: solid 1px #e1e1e1;
+}
+#header_4_2 th{
+  width: 560px;
+  height: 29px; 
+  background-color: #31c978;
+  color: #ffffff;
+  vertical-align: middle;
+  border: solid 1px #e1e1e1;
+}
+.personName{
+  width:560px;
+  height: 38px; 
+  background-color: #ffffff;
+  color: #363636;
+  vertical-align: middle;
+  border: solid 1px #e1e1e1; 
+}
+.Across{
+  width:200px;
+  height: 38px; 
+  background-color: #ffffff;
+  color: #363636;
+  vertical-align: middle;
+  border: solid 1px #e1e1e1; 
+}
 #User{
 	margin-top: 15px; 
 }
@@ -297,99 +377,6 @@ input::-webkit-input-placeholder{
     display: inline-block;
     vertical-align: top;
 }
-/*#Table_2{
-	margin-left: 380px;
-	margin-top:15px;
-}
-#userManage{
-	font-family: "MicrosoftYaHeu";
-	font-size: 14px; 
-	border: solid 1px #e1e1e1;
-	border-collapse: collapse;
-	text-align: center;
-}
-#header_2 :first-child{
-   width: 576px;
-   height: 58px;
-   background-color: #31c978;
-   font-weight: bold; 
-   color: #ffffff;
-   vertical-align: middle;
-   border: solid 1px #e1e1e1;
-}
-#header_2 :nth-child(2){
-   width: 276px;
-   height: 58px;
-   background-color: #31c978;
-   font-weight: bold; 
-   color: #ffffff;
-   vertical-align: middle;
-   border: solid 1px #e1e1e1;	
-}
-#header_2 :last-child{
-   width: 296px;
-   height: 28px;
-   background-color: #31c978;
-   font-weight: bold; 
-   color: #ffffff;
-   vertical-align: middle;
-   border: solid 1px #e1e1e1;	
-}
-.Rank{
-   width: 98px;
-   height: 28px;
-   background-color: #31c978;
-   font-weight: bold; 
-   color: #ffffff;
-   vertical-align: middle;
-   border: solid 1px #e1e1e1;
-}
-.Type{
-   width: 576px;
-   height: 179px;
-   background-color: #ffffff;
-   font-weight: bold; 
-   color: #363636;
-   vertical-align: middle;
-   border: solid 1px #e1e1e1;
-}
-.Name{
-   width: 276px;
-   height: 29px;
-   background-color: #ffffff;
-   font-weight: bold; 
-   color: #363636;
-   vertical-align: middle;
-   border: solid 1px #e1e1e1;
-}
-.rankStudent{
-   width: 99px;
-   height: 29px;
-   background-color: #ffffff;
-   font-weight: bold; 
-   color: #363636;
-   vertical-align: middle;
-   border: solid 1px #e1e1e1;
-}
-.rankTeacher{
-   width: 99px;
-   height: 29px;
-   background-color: #ffffff;
-   font-weight: bold; 
-   color: #363636;
-   vertical-align: middle;
-   border: solid 1px #e1e1e1;
-}
-.rankManager{
-   width: 99px;
-   height: 29px;
-   background-color: #ffffff;
-   font-weight: bold; 
-   color: #363636;
-   vertical-align: middle;
-   border: solid 1px #e1e1e1;
-}
-*/
 #pageTurning{
   margin:30px auto auto 0;
   padding:0px;
@@ -510,27 +497,6 @@ input::-webkit-input-placeholder{
     color: #989898!important;
     text-align:center;
 }
-/*    <div id="pageTurning">
-      <ul id="Page">
-              <li id="Index"><a href="#">首页</a></li>
-              <li id="prePage"><a href="#">上一页</a></li>
-              <li id="one"><a href="#">1</a></li>
-              <li id="two"><a href="#">2</a></li>
-              <li id="three"><a href="#">3</a></li>
-              <li id="four"><a href="#">4</a></li>
-              <li id="five"><a href="#">5</a></li>
-              <li id="more"><a href="#">...</a></li>
-              <li id="nextPage"><a href="#">下一页</a></li>
-              <li id="lastPage"><a href="#">尾页</a></li>
-              <li id="buttomSearch">
-                <span>第
-                  <input type="text" name="buttomSearch" >
-                  <input type="button" name="buttomSearch" value="搜索">
-                </span>
-              </li>
-            </ul>
-    </div>
-    */
 #Footer{
 	margin-top: 100px;
 	height: 50px;
