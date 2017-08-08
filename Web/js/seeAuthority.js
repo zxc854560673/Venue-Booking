@@ -8,7 +8,6 @@ $(document).ready(function(){
 			url:"http://bkxjjh.natappfree.cc/seeAuthority",
 			success:function importTable_1(data){
 	                    var a,b,c,d,e,f,g,h;
-                        //b与教师地址匹配；c,d用来计算申请第几天第几节课；f用来与申请单位匹配；g与申请人匹配；,h用来与事由匹配
                         var i,element;
                         for(i=0;i<data.length;i++){
     	                    element=document.getElementById(i).getElementsByTagName("td");
@@ -19,7 +18,13 @@ $(document).ready(function(){
     	                    element[1].innerHTML=b;
     	                    c=data[i].apply_for_time+" ";
     	                    d=findClass(data[i].start_time,data[i].end_time);
-    	                    element[2].innerHTML=c+d;
+    	                    element[2].innerHTML=c+d;//c,d用来计算申请第几天第几节课；
+    	                    e=data[i].organization;
+    	                    element[3].innerHTML=e;//e用来与申请单位匹配；
+    	                    f=data[i].name;
+    	                    element[4].innerHTML=f;//f与申请人匹配；
+    	                    g=data[i].reason;
+    	                    element[5].innerHTML=g;////,g用来与事由匹配
     	                }
                     },
 			data:{
@@ -63,15 +68,16 @@ $(function(){
 		});
 	});
 })*/
+//计算申请的课
 function findClass(a,b){
 	var start_time,end_time;
 	var i,k;
 	for(i=0;i<strs.length;i++){
 		range=strs[i].split("-");
-		if(range[i]<a<range[i+1]){
+		if(a>=range[0] && a<=range[1]){
 			start_time=i+1;
 		}
-		if(range[i]<b<range[i+1]){
+		if(b>=range[0] && b<=range[1]){
 			end_time=i+1;
 		}
 	};
