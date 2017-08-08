@@ -1,24 +1,36 @@
-$(window).load(function() {
+$(document).ready(function(){
     $("#Waiting").load(function(){
 		$.ajax({
 			type:"POST",
-			url:"seeAuthority"
-			success:
+			url:"seeAuthority",
+			success:function(data){console.log(data);},
 			data:{
-				target:'0';
+				target:'0',
 			}
 		});
 	});
-});
+})
+$(function(){ 
+　　$("#Waiting").load(function(){
+		$.ajax({
+			type:"POST",s
+			url:"seeAuthority",
+			success:function(data){console.log(data);},
+			data:{
+				target:'0',
+			}
+		});
+　　}); 
+})
 $(function(){
 	$("#Waiting").click(function(){
 		$.ajax({
 			type:"POST",
 			url:"seeAuthority",
-			dataType:"".
-			success:
+			dataType:"",
+			//success:
 			data:{
-				target:'1';
+				target:'1',
 			}
 		});
 	});
@@ -28,9 +40,9 @@ $(function(){
 		$.ajax({
 			type:"POST",
 			url:"seeAuthority",
-			success:
+			//success:
 			data:{
-				target:'1';
+				target:'1',
 			}
 		});
 	});
@@ -40,9 +52,9 @@ $(function(){
 		$.ajax({
 			type:"POST",
 			url:"seeAuthority",
-			success:
+			//success:
 			data:{
-				target:'2';
+				target:'2',
 			}
 		});
 	});

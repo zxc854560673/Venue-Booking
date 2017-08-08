@@ -212,7 +212,6 @@ body{
 	border: solid 1px #e1e1e1;
 	border-collapse: collapse;
 	text-align: center;
-    display:none;
 }
 #Classroom_2{
 	margin: 0 auto;
@@ -230,6 +229,7 @@ body{
 	border: solid 1px #e1e1e1;
 	border-collapse: collapse;
 	text-align: center;
+  display:none;
 }
 #header :first-child{
    width: 176px;
