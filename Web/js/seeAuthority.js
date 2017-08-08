@@ -39,32 +39,46 @@ $(document).ready(function(){
 		});
 })
 //点击通过后，向后台发送请求改变数据状态。
-$(function(){
-	$(".authorityAcross_0").click(function(){
-		$.ajax({
-			type:"POST",
-			url:"http://bkxjjh.natappfree.cc/seeAuthority",
-			data:{
-				target:'1',
-			}
-		});
-	});
-})
+// $(function(){
+// 	$(".authorityAcross_0").click(function(){
+// 		Id= $('this').parent().parent().attr('id');
+// 		$.ajax({
+// 			type:"POST",
+// 			url:"http://bkxjjh.natappfree.cc/seeAuthority",
+// 			data:{
+// 				target:'getdata',
+// 				status:'0',
+// 				id:'Id',
+// 			}
+// 			success:show_element(this);
+// 			}
+// 		});
+// 	});
+// })
 function show_element(e){  
 	var a,b;
     function first(e){
-    	e.src="images/tick.png";
-    	setTimeout(function(){second(e)},1000);
+		e.src="images/tick.png";
+		second(e);
+    	//setTimeout(function(){second(e)},1000);
     };
     function second(e){
-        a=e.parentNode;//获取td
-        b=a.parentNode;//获取tr
-        b.innerHTML="";//清除
+        b=e.parentNode.parentNode;//获取tr
+		var c=$(b);
+		c.find('td').animate({height:"0px"},700);
+		c.find('td')
+		.wrapInner('<div style="display: block;" />')
+		.parent()
+		.find('td > div')
+		.slideUp(700, function(){
+			$(this).parent().parent().remove();
+		})
     };
     e.onClick=null;
     first(e);
     
-}  
+}
+
 /*$(function(){
 	$("#Waiting").click(function(){
 		$.ajax({
