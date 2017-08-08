@@ -13,7 +13,7 @@ $(document).ready(function(){
     	                    elementParent=document.getElementById("tableTbody"); 
                             var newTr = document.createElement("tr");
                             newTr.setAttribute("id",i)
-                            newTr.innerHTML = '<td class="sumbitTime">XXXX年XX月XX日&nbsp;XX:XX:XX</td><td class="classPlace">教室地址1</td><td class="applyTime">XX月XX日&nbsp;第XX节~第XX节</td><td class="Office">真实存在的单位</td><td class="Applicant">XXX</td><td class="Reason">合乎情理没有毛病的理由</td><td class="authorityAcross_0"><img src="images/frame.png"></td><td class="authorityAcross_1"><img src="images/frame.png"></td>'
+                            newTr.innerHTML = '<td class="sumbitTime">XXXX年XX月XX日&nbsp;XX:XX:XX</td><td class="classPlace">教室地址1</td><td class="applyTime">XX月XX日&nbsp;第XX节~第XX节</td><td class="Office">真实存在的单位</td><td class="Applicant">XXX</td><td class="Reason">合乎情理没有毛病的理由</td><td class="authorityAcross_0"><img src="images/frame.png" onClick="show_element(this)"></td><td class="authorityAcross_1"><img src="images/frame.png"></td>'
                             elementParent.appendChild(newTr);
                             element=document.getElementById(i).getElementsByTagName("td");
     	                    console.log(data[i]);
@@ -38,6 +38,33 @@ $(document).ready(function(){
 			}
 		});
 })
+//点击通过后，向后台发送请求改变数据状态。
+$(function(){
+	$(".authorityAcross_0").click(function(){
+		$.ajax({
+			type:"POST",
+			url:"http://bkxjjh.natappfree.cc/seeAuthority",
+			data:{
+				target:'1',
+			}
+		});
+	});
+})
+function show_element(e){  
+	var a,b;
+    function first(e){
+    	e.src="images/tick.png";
+    	setTimeout(function(){second(e)},1000);
+    };
+    function second(e){
+        a=e.parentNode;//获取td
+        b=a.parentNode;//获取tr
+        b.innerHTML="";//清除
+    };
+    e.onClick=null;
+    first(e);
+    
+}  
 /*$(function(){
 	$("#Waiting").click(function(){
 		$.ajax({
