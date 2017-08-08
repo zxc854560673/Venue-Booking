@@ -197,7 +197,33 @@ body{
 	margin: 0px;
 	padding: 0px;
 }
+#Table_2{
+	margin: 0px;
+	padding: 0px;
+}
+#Table_3{
+	margin: 0px;
+	padding: 0px;
+}
 #Classroom{
+	margin: 0 auto;
+	font-family: "MicrosoftYaHei";
+	font-size: 14px; 
+	border: solid 1px #e1e1e1;
+	border-collapse: collapse;
+	text-align: center;
+    display:none;
+}
+#Classroom_2{
+	margin: 0 auto;
+	font-family: "MicrosoftYaHei";
+	font-size: 14px; 
+	border: solid 1px #e1e1e1;
+	border-collapse: collapse;
+	text-align: center;
+	display:none;
+}
+#Classroom_3{
 	margin: 0 auto;
 	font-family: "MicrosoftYaHei";
 	font-size: 14px; 
@@ -269,6 +295,14 @@ body{
    vertical-align: middle;
    border: solid 1px #e1e1e1;	
 }
+#header_2_2 th{
+   width: 155px;
+   height: 29px;
+   background-color: #31c978;
+   color: #ffffff;
+   vertical-align: middle;
+   border: solid 1px #e1e1e1;	
+}
 .sumbitTime{
    width: 196px;
    height: 39px;
@@ -334,6 +368,15 @@ body{
 }
 .authorityAcross_1{
 	width: 76px;
+   height: 39px;
+   background-color: #ffffff;
+   color: #363636;
+   vertical-align: middle;
+   border: solid 1px #e1e1e1;
+   font-family:"MicrosoftYaHeiLight";
+}
+.authorityAcross_2{
+	width: 155px;
    height: 39px;
    background-color: #ffffff;
    color: #363636;

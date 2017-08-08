@@ -1,0 +1,49 @@
+$(window).load(function() {
+    $("#Waiting").load(function(){
+		$.ajax({
+			type:"POST",
+			url:"seeAuthority"
+			success:
+			data:{
+				target:'0';
+			}
+		});
+	});
+});
+$(function(){
+	$("#Waiting").click(function(){
+		$.ajax({
+			type:"POST",
+			url:"seeAuthority",
+			dataType:"".
+			success:
+			data:{
+				target:'1';
+			}
+		});
+	});
+})
+$(function(){
+	$("#Pass").click(function(){
+		$.ajax({
+			type:"POST",
+			url:"seeAuthority",
+			success:
+			data:{
+				target:'1';
+			}
+		});
+	});
+})
+$(function(){
+	$("#unPass").click(function(){
+		$.ajax({
+			type:"POST",
+			url:"seeAuthority",
+			success:
+			data:{
+				target:'2';
+			}
+		});
+	});
+})
