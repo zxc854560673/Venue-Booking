@@ -10,7 +10,12 @@ $(document).ready(function(){
 	                    var a,b,c,d,e,f,g,h;
                         var i,element;
                         for(i=0;i<data.length;i++){
-    	                    element=document.getElementById(i).getElementsByTagName("td");
+    	                    elementParent=document.getElementById("tableTbody"); 
+                            var newTr = document.createElement("tr");
+                            newTr.setAttribute("id",i)
+                            newTr.innerHTML = '<td class="sumbitTime">XXXX年XX月XX日&nbsp;XX:XX:XX</td><td class="classPlace">教室地址1</td><td class="applyTime">XX月XX日&nbsp;第XX节~第XX节</td><td class="Office">真实存在的单位</td><td class="Applicant">XXX</td><td class="Reason">合乎情理没有毛病的理由</td><td class="authorityAcross_0"><img src="images/frame.png"></td><td class="authorityAcross_1"><img src="images/frame.png"></td>'
+                            elementParent.appendChild(newTr);
+                            element=document.getElementById(i).getElementsByTagName("td");
     	                    console.log(data[i]);
     	                    a=data[i].apply_time;//a与提交时间匹配
     	                    element[0].innerHTML=a;
@@ -28,6 +33,7 @@ $(document).ready(function(){
     	                }
                     },
 			data:{
+				target:'getdata',
 				status:'0',
 			}
 		});
