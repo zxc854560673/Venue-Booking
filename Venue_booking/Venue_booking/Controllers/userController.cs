@@ -69,10 +69,13 @@ namespace Venue_booking.Controllers
             var c = for_user_public.AES_decrypt(ety, sk, iv);
             //test.log(c);
             var o = (JObject)JsonConvert.DeserializeObject(c);
+            test.log(o["avatarUrl"].ToString());
             Dictionary<string, object> qm=new Dictionary<string, object>();
             qm.Add("wc_openid", o["openId"].ToString());
             qm.Add("wc_name", o["nickName"].ToString());
             mi.wc.data_add_pro("wc_user_all", qm);
+            var id = mi.wc.data_search("wc_user_all", "id", o["openId"].ToString())[0]["id"];
+            http_ways.get_file(o["avatarUrl"].ToString(), mi.local + @"Content\user_img\" + id + ".jpg");
             //mi.wc.data_add("wc_user_all", new string[] { o["openId"].ToString(), o["nickName"].ToString(), "", "0" });
             return Json(new { msg = "success" });
         }
@@ -184,6 +187,7 @@ namespace Venue_booking.Controllers
                 cmo.Add("end_time", end_time);
                 var search = "select count(status) as count from wc_recoder where  not (end_time<@start_time or start_time>@end_time) and status=-1";
                 var po = mi.wc.data_search_self(search, cmo);
+                if(po==null) return Json(new { msg = "error", more = "system_error" });
                 if (po[0]["count"] != "0") return Json(new { msg = "error", more = "have been booked" });
                 //获取开放时长
                 Dictionary<string, object> ciom= new Dictionary<string, object>();
@@ -242,9 +246,9 @@ namespace Venue_booking.Controllers
                 var organization = Request.Form["organization"] == null ? "-1" : Request.Form["organization"].ToString();
                 var ret = (new object[] { }).ToList();
                 for (int i = 0; i < sall.Length - 1; i++) {
-                    var search = "select count(status) as count from wc_recoder where  not (end_time<@start_time or start_time>@end_time) and status=-1";
+                    var search = "select isnull(count(status),0) as count from wc_recoder where  not (end_time<@start_time or start_time>@end_time) and status=-1";
                     var po = mi.wc.data_search_self(search, cmo);
-                    if (po[0]["count"] != "0") { ret.Add(new {apply_time= sall[i], msg="have been booking"}); continue; }
+                    if (po[0]["count"] != "0") { ret.Add(new {apply_time= sall[i], msg="error",more= "have been booking" }); continue; }
                     var id = mi.wc.data_getIdBySessionId(iop);
                     Dictionary<string, object> cnk = new Dictionary<string, object>();
                     cnk.Add("applyer_id", id);
