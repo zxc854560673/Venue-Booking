@@ -166,6 +166,7 @@ body{
     display: inline-block;
     vertical-align:top;
     font-family:"MicrosoftYaHei";
+    text-decoration: none;
 }
 #Pass{
     margin:0px;
@@ -176,6 +177,7 @@ body{
     display: inline-block;
     vertical-align:top;
     font-family:"MicrosoftYaHei";
+    text-decoration: none;
 }
 #unPass{
     margin:0px;
@@ -186,10 +188,23 @@ body{
     display: inline-block;
     vertical-align:top;
     font-family:"MicrosoftYaHeiLight";
+    text-decoration: none;
 }
-#Select img{
+.selectImg1{
   position:absolute;
   left:0px;
+  bottom:20px;
+  display:inline-block;
+}
+.selectImg2{
+  position:absolute;
+  left:80px;
+  bottom:20px;
+  display:inline-block;
+}
+.selectImg3{
+  position:absolute;
+  left:160px;
   bottom:20px;
   display:inline-block;
 }
@@ -389,6 +404,7 @@ body{
   margin:30px auto auto 0;
   padding:0px;
   text-align: center;
+  display:none;
 }
 #Page{
   list-style-type:none;

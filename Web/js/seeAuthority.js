@@ -13,7 +13,7 @@ window.onload=function(){
 };
 //首次加载获取表格内容
 $(document).ready(function(){
-    getTable();
+    getTable(0);
 })
 //计算申请的课
 function findClass(a,b){
@@ -37,7 +37,7 @@ function findClass(a,b){
 	}
 }
 //点击通过后，向后台发送请求改变数据状态,并且完成一系列操作。
-function show_element(e,ok){  
+function show_element(e,ok,table){  
 	var a,b,c;
 	var Id= $(e).parent().parent().attr('value');
 		$.ajax({
@@ -48,15 +48,14 @@ function show_element(e,ok){
 				status:ok,
 				id:Id,
 			 },
-			 // success:function(){
-			 // 	if()
-			 // }
 			})
     function first(e){
 		e.src="images/tick.png";
-		second(e);
+		if(table==0){second(e,0);}
+		if(table==1){second(e,2);}
+		if(table==2){second(e,1);}
     };
-    function second(e){
+    function second(e,can){
         b=e.parentNode.parentNode;//获取tr
 		var c=$(b);
 		c.find('td').animate({height:"0px"},700);
@@ -68,10 +67,13 @@ function show_element(e,ok){
 			$(this).parent().parent().remove();
 		})
 		setTimeout(function(){
-			a=document.getElementById("tableTbody");//获取tbody标签
+			//获取tbody标签
+			if(can==0){a=document.getElementById("tableTbody");}
+            if(can==1){a=document.getElementById("tableTbody_1");}
+            if(can==2){a=document.getElementById("tableTbody_2");}
             c=a.getElementsByTagName('tr');//获取所有的tr标签
-        if(c.length<3){
-    	     getTable();
+        if(c.length<3&&can==0){
+    	     getTable(0);
            }//点击完了重新获取
        },710);
     };
@@ -80,19 +82,23 @@ function show_element(e,ok){
 }
 
 //获取表格内容
-function getTable(){
+function getTable(p){
 	$.ajax({
 			type:"POST",
 			url:"http://bkxjjh.natappfree.cc/seeAuthority",
 			success:function importTable_1(data){
-	                    var a,b,c,d,e,f,g,h,j;
+	                    var a,b,c,d,e,f,g;
                         var i,element;
                         for(i=0;i<data.length;i++){
-    	                    elementParent=document.getElementById("tableTbody"); 
+                        	if(p==0){elementParent=document.getElementById("tableTbody");}
+    	                    if(p==-1){elementParent=document.getElementById("tableTbody_1");}
+    	                    if(p==1){elementParent=document.getElementById("tableTbody_2");}
                             var newTr = document.createElement("tr");
                             newTr.setAttribute("id",i);
                             newTr.setAttribute("value",data[i].id);
-                            newTr.innerHTML = '<td class="sumbitTime">XXXX年XX月XX日&nbsp;XX:XX:XX</td><td class="classPlace">教室地址1</td><td class="applyTime">XX月XX日&nbsp;第XX节~第XX节</td><td class="Office">真实存在的单位</td><td class="Applicant">XXX</td><td class="Reason">合乎情理没有毛病的理由</td><td class="authorityAcross_0"><img src="images/frame.png" onClick="show_element(this,-1)"></td><td class="authorityAcross_1"><img src="images/frame.png" onClick="show_element(this,1)"></td>'
+                            if(p==0){newTr.innerHTML = '<td class="sumbitTime">XXXX年XX月XX日&nbsp;XX:XX:XX</td><td class="classPlace">教室地址1</td><td class="applyTime">XX月XX日&nbsp;第XX节~第XX节</td><td class="Office">真实存在的单位</td><td class="Applicant">XXX</td><td class="Reason">合乎情理没有毛病的理由</td><td class="authorityAcross_0"><img src="images/frame.png" onClick="show_element(this,-1,0)"></td><td class="authorityAcross_1"><img src="images/frame.png" onClick="show_element(this,1,0)"></td>'}
+                            if(p==-1){newTr.innerHTML = '<td class="sumbitTime">XXXX年XX月XX日&nbsp;XX:XX:XX</td><td class="classPlace">教室地址1</td><td class="applyTime">XX月XX日&nbsp;第XX节~第XX节</td><td class="Office">真实存在的单位</td><td class="Applicant">XXX</td><td class="Reason">合乎情理没有毛病的理由</td><td class="authorityAcross_2"><img src="images/tick.png" onClick="show_element(this,0,1);"></td>'}
+                            if(p==1){newTr.innerHTML = '<td class="sumbitTime">XXXX年XX月XX日&nbsp;XX:XX:XX</td><td class="classPlace">教室地址1</td><td class="applyTime">XX月XX日&nbsp;第XX节~第XX节</td><td class="Office">真实存在的单位</td><td class="Applicant">XXX</td><td class="Reason">合乎情理没有毛病的理由</td><td class="authorityAcross_2"><img src="images/tick.png" onClick="show_element(this,0,2);"></td>'}
                             elementParent.appendChild(newTr);
                             element=document.getElementById(i).getElementsByTagName("td");
     	                    console.log(data[i]);
@@ -114,7 +120,65 @@ function getTable(){
                     },
 			data:{
 				target:'getdata',
-				status:'0',
+				status:p,
 			}
 		});
+}
+//点击未通过触发的行为
+function pass(g){
+	var a,b,c,d,m,f;
+	a=document.getElementById("Select");
+	b=a.getElementsByTagName('img');
+	b[0].className="selectImg2";
+	c=document.getElementById("Classroom");
+	d=document.getElementById("Classroom_3");
+	m=document.getElementById("Classroom_2");
+	f=document.getElementById("pageTurning");
+	$(c).hide();
+	$(d).hide();
+	$(m).show();
+    $(f).show();
+    getTable(-1);
+}
+function noPass(g){
+	var a,b,c,d,m,f;
+	a=document.getElementById("Select");
+	b=a.getElementsByTagName('img');
+	b[0].className="selectImg3";
+	c=document.getElementById("Classroom");
+	d=document.getElementById("Classroom_3");
+	m=document.getElementById("Classroom_2");
+	f=document.getElementById("pageTurning");
+	$(c).hide();
+	$(m).hide();
+	$(d).show();
+    $(f).show();
+    getTable(1);
+}
+function waiting(){
+	var a,b,c,d,m,f;
+	a=document.getElementById("Select");
+	b=a.getElementsByTagName('img');
+	b[0].className="selectImg1";
+	c=document.getElementById("Classroom");
+	d=document.getElementById("Classroom_3");
+	m=document.getElementById("Classroom_2");
+	f=document.getElementById("pageTurning");
+	$(d).hide();
+	$(m).hide();
+	$(c).show();
+    $(f).hide();
+    getTable(0);
+}
+//分页请求
+function page(p){
+	$.ajax({
+		type:"POST",
+		url:"http://bkxjjh.natappfree.cc/seeAuthority",
+		data:{
+				target:'num',
+				status:p,
+		}
+		success:
+	});
 }

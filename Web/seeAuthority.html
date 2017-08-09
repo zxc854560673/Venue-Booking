@@ -41,10 +41,10 @@
 				<img src="images/line2.jpg">
 			</div>
 			<div id="Select">
-				<p id="Waiting">未审核</p>
-				<p id="Pass">已通过</p>
-				<p id="unPass">未通过</p>
-				<img src="images/title.png"></img>
+				<a id="Waiting" onClick="waiting()">未审核</a>
+				<a id="Pass" onClick="pass()">已通过</a>
+				<p id="unPass" onClick="noPass()">未通过</a>
+				<img src="images/title.png" class="selectImg1"></img>
 			</div>
 			<div id="Table_1">
 				<table id="Classroom">
@@ -66,9 +66,9 @@
 				</table>
 			</div>
 		</div>
-		<div id="Table_3">
-				<table id="Classroom_3">
-					<tbody>
+		<div id="Table_2">
+				<table id="Classroom_2">
+					<tbody id="tableTbody_1">
 						<tr id="header">
 							<th rowspan="2">提交时间</th>
 							<th rowspan="2">教室地址</th>
@@ -81,16 +81,23 @@
 						<tr id="header_2_2">
 							<th>撤销</th>
 						</tr>
-						<tr>
-							<td class="sumbitTime">XXXX年XX月XX日&nbsp;XX:XX:XX</td>
-							<td class="classPlace">教室地址1</td>
-							<td class="applyTime">XX月XX日&nbsp;第XX节~第XX节</td>
-							<td class="Office">真实存在的单位</td>
-							<td class="Applicant">XXX</td>
-							<td class="Reason">合乎情理没有毛病的理由</td>
-							<td class="authorityAcross_2">
-								<img src="images/frame.png">
-							</td>
+					</tbody>
+				</table>
+		</div>
+		<div id="Table_3">
+				<table id="Classroom_3">
+					<tbody id="tableTbody_2">
+						<tr id="header">
+							<th rowspan="2">提交时间</th>
+							<th rowspan="2">教室地址</th>
+							<th rowspan="2">申请时间</th>
+							<th rowspan="2">申请单位</th>
+							<th rowspan="2">申请人</th>
+							<th rowspan="2">事由</th>
+                            <th colspan="2">审核</th>
+						</tr>
+						<tr id="header_2_2">
+							<th>撤销</th>
 						</tr>
 					</tbody>
 				</table>
