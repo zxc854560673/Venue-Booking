@@ -26,6 +26,7 @@ namespace Venue_booking
         public const string appid = "wxad42b620cdf88dca";
         public const string appsecret = "4a49244b5ff681446e0ebb9c0d265ef5";
         public const string myclasstime = "480-525|535-580|600-645|655-700|860-905|915-960|980-1025|1035-1080|1140-1185|1195-1240|1250-1295";
+        public const string local = @"C:\Users\qq854\Documents\visual studio 2017\Projects\Venue_booking\Venue_booking\";
         public static SqlConnection sConn;
         public static mydata wc;
         public static mysession io;
@@ -100,13 +101,18 @@ namespace Venue_booking
             }
             return output;
         }
+        public static bool isIn<T>(T[] a, T b) {
+            foreach (var c in a) if (c.Equals(b)) return true;
+            return false;
+        }
+
     }
 
     public class mydata {
         //public SqlConnection sConn;
         public bool data_connect() {
             string connSting;
-            connSting = "server=localhost;database=wechat;Integrated Security=True ";
+            connSting = "server=localhost;database=wechat;Integrated Security=True;MultipleActiveResultSets=True";
             mi.sConn = new SqlConnection(connSting);
             try
             {
@@ -153,10 +159,12 @@ namespace Venue_booking
                     }
 
                 }
-                SqlCommand command = new SqlCommand("insert into dbo." + table_name + " values (" + p + ")", mi.sConn);
                 int yr;
-                yr = command.ExecuteNonQuery();
-                command.Dispose();
+                using (SqlCommand command = new SqlCommand("insert into dbo." + table_name + " values (" + p + ")", mi.sConn))
+                {
+                    yr = command.ExecuteNonQuery();
+                    command.Dispose();
+                }
                 return yr;
             }
             catch (Exception ex)
@@ -170,24 +178,29 @@ namespace Venue_booking
             foreach (var c in k) {
                 if (a != "") { a += ",@" + c.Key; } else { a = "@"+c.Key; }
             }
-            SqlCommand command = new SqlCommand("insert into dbo." + table_name + " ("+a.Replace("@","")+") values (" + a + ")", mi.sConn);
-            foreach (var c in k) {
-                command.Parameters.AddWithValue(c.Key, c.Value);
-            }
             int yr;
-            yr = command.ExecuteNonQuery();
-            command.Dispose();
+            using (SqlCommand command = new SqlCommand("insert into dbo." + table_name + " (" + a.Replace("@", "") + ") values (" + a + ")", mi.sConn))
+            {
+                foreach (var c in k)
+                {
+                    command.Parameters.AddWithValue(c.Key, c.Value);
+                }
+                yr = command.ExecuteNonQuery();
+                command.Dispose();
+            }
             return yr;
         }
 
         public int data_del(string table_name, string id) {
             try
             {
-                SqlCommand command = new SqlCommand("delete from " + table_name + " where id=@id", mi.sConn);
-                command.Parameters.AddWithValue("@id", id);
                 int yr;
-                yr = command.ExecuteNonQuery();
-                command.Dispose();
+                using (SqlCommand command = new SqlCommand("delete from " + table_name + " where id=@id", mi.sConn))
+                {
+                    command.Parameters.AddWithValue("@id", id);
+                    yr = command.ExecuteNonQuery();
+                    command.Dispose();
+                }
                 return yr;
             }
             catch (Exception ex) {
@@ -199,12 +212,14 @@ namespace Venue_booking
         public int data_update(string table_name, string column_name, string id, string new_value) {
             try
             {
-                SqlCommand command = new SqlCommand("update " + table_name + " set " + column_name + " = @new_value where id=@id", mi.sConn);
-                command.Parameters.AddWithValue("@new_value", new_value);
-                command.Parameters.AddWithValue("@id", id);
                 int yr;
-                yr = command.ExecuteNonQuery();
-                command.Dispose();
+                using (SqlCommand command = new SqlCommand("update " + table_name + " set " + column_name + " = @new_value where id=@id", mi.sConn))
+                {
+                    command.Parameters.AddWithValue("@new_value", new_value);
+                    command.Parameters.AddWithValue("@id", id);
+                    yr = command.ExecuteNonQuery();
+                    command.Dispose();
+                }
                 return yr;
             }
             catch (Exception ex)
@@ -296,11 +311,14 @@ namespace Venue_booking
             try
             {
                 int yr;
-                SqlCommand command = new SqlCommand(sql_string, mi.sConn);
-                foreach (var z in dic) {
-                    command.Parameters.AddWithValue(z.Key, z.Value);
+                using (SqlCommand command = new SqlCommand(sql_string, mi.sConn))
+                {
+                    foreach (var z in dic)
+                    {
+                        command.Parameters.AddWithValue(z.Key, z.Value);
+                    }
+                    yr = command.ExecuteNonQuery();
                 }
-                yr = command.ExecuteNonQuery();
                 return yr;
             }
             catch (Exception ex) {
@@ -405,7 +423,11 @@ namespace Venue_booking
             wc.Encoding = Encoding.UTF8;
             string returnText = wc.DownloadString(url);
             return returnText;
-
+        }
+        public static void get_file(string url, string path) {
+            WebClient wc = new WebClient();
+            wc.DownloadFile(new Uri(url),path);
+            return;
         }
     }
 

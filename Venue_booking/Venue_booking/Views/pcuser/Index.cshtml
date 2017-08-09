@@ -7,6 +7,7 @@
 <head>
     <title>青朴课室预约管理首页</title>
     <link rel="stylesheet" type="text/css" href="~/Content/CSS/index.css">
+    <meta charset="utf-8" />
 </head>
 <body>
     <div>
@@ -23,7 +24,9 @@
             </div>
         </div>
         <div id="Slider">
-            <div id="Circle"></div>
+            <div id="Circle">
+                <img src="~/Content/user_img/@(ViewData["id"]).jpg" style="height: 120px;width:120px;border-radius:50%;">
+            </div>
             <div>
                 <div id="Welcome">你好，@ViewData["user_name"]</div>
                 <img src="~/Content/images/banner_edit.png">
