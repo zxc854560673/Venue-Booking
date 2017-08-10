@@ -37,7 +37,7 @@ function findClass(a,b){
 	}
 }
 //点击通过后，向后台发送请求改变数据状态,并且完成一系列操作。
-function show_element(e,ok,table){  
+function show_element(e,ok,table){  //e为当前函数
 	var a,b,c;
 	var Id= $(e).parent().parent().attr('value');
 		$.ajax({
@@ -48,16 +48,22 @@ function show_element(e,ok,table){
 				status:ok,
 				id:Id,
 			 },
+			 success:function(u){
+			 	conflict(e,u,table);
+			 }
 			})
-    function first(e){
-		e.src="images/tick.png";
-		if(table==0){second(e,0);}
-		if(table==1){second(e,2);}
-		if(table==2){second(e,1);}
-    };
-    function second(e,can){
-        b=e.parentNode.parentNode;//获取tr
-		var c=$(b);
+    e.onClick=null;
+}
+//移除特效
+function first(e,table){
+	e.src="images/tick.png";
+	if(table==0){second(e,0);}
+	if(table==1){second(e,1);}
+	if(table==2){second(e,2);}
+};
+function second(e,can){
+    b=e.parentNode.parentNode;//获取tr
+	var c=$(b);
 		c.find('td').animate({height:"0px"},700);
 		c.find('td')
 		.wrapInner('<div style="display: block;" />')
@@ -72,36 +78,83 @@ function show_element(e,ok,table){
             if(can==1){a=document.getElementById("tableTbody_1");}
             if(can==2){a=document.getElementById("tableTbody_2");}
             c=a.getElementsByTagName('tr');//获取所有的tr标签
-        if(c.length<3&&can==0){
-    	     getTable(0);
-           }//点击完了重新获取
+            if(c.length<3&&can==0){
+    	        getTable(0);
+            }//点击完了重新获取
        },710);
     };
-    e.onClick=null;
-    first(e);
-}
-
 //获取表格内容
 function getTable(p){
 	$.ajax({
 			type:"POST",
 			url:"http://bkxjjh.natappfree.cc/seeAuthority",
 			success:function importTable_1(data){
-	                    var a,b,c,d,e,f,g;
-                        var i,element;
-                        for(i=0;i<data.length;i++){
-                        	if(p==0){elementParent=document.getElementById("tableTbody");}
-    	                    if(p==-1){elementParent=document.getElementById("tableTbody_1");}
-    	                    if(p==1){elementParent=document.getElementById("tableTbody_2");}
+	                    var a,b,c,d,e,f,g,reset;
+                        var i,element,elementParent;
+                        	if(p==0){elementParent=document.getElementById("tableTbody");elementParent.innerHTML='<tr id="header">\
+							<th rowspan="2">提交时间</th>\
+							<th rowspan="2">教室地址</th>\
+							<th rowspan="2">申请时间</th>\
+							<th rowspan="2">申请单位</th>\
+							<th rowspan="2">申请人</th>\
+							<th rowspan="2">事由</th>\
+                            <th colspan="2">审核</th>\
+						</tr>\
+						<tr id="header_2">\
+							<th>通过</th>\
+							<th>不通过</th>\
+						</tr>'}
+    	                    if(p==-1){elementParent=document.getElementById("tableTbody_1");elementParent.innerHTML='<tr id="header">\
+							<th rowspan="2">提交时间</th>\
+							<th rowspan="2">教室地址</th>\
+							<th rowspan="2">申请时间</th>\
+							<th rowspan="2">申请单位</th>\
+							<th rowspan="2">申请人</th>\
+							<th rowspan="2">事由</th>\
+                            <th colspan="2">审核</th>\
+						</tr>\
+						<tr id="header_2_2">\
+							<th>撤销</th>\
+						</tr>'}
+    	                    if(p==1){elementParent=document.getElementById("tableTbody_2");elementParent.innerHTML='<tr id="header">\
+							<th rowspan="2">提交时间</th>\
+							<th rowspan="2">教室地址</th>\
+							<th rowspan="2">申请时间</th>\
+							<th rowspan="2">申请单位</th>\
+							<th rowspan="2">申请人</th>\
+							<th rowspan="2">事由</th>\
+                            <th colspan="2">审核</th>\
+						</tr>\
+						<tr id="header_2_2">\
+							<th>撤销</th>\
+						</tr>'}
+						for(i=0;i<data.length;i++){
                             var newTr = document.createElement("tr");
                             newTr.setAttribute("id",i);
                             newTr.setAttribute("value",data[i].id);
-                            if(p==0){newTr.innerHTML = '<td class="sumbitTime">XXXX年XX月XX日&nbsp;XX:XX:XX</td><td class="classPlace">教室地址1</td><td class="applyTime">XX月XX日&nbsp;第XX节~第XX节</td><td class="Office">真实存在的单位</td><td class="Applicant">XXX</td><td class="Reason">合乎情理没有毛病的理由</td><td class="authorityAcross_0"><img src="images/frame.png" onClick="show_element(this,-1,0)"></td><td class="authorityAcross_1"><img src="images/frame.png" onClick="show_element(this,1,0)"></td>'}
-                            if(p==-1){newTr.innerHTML = '<td class="sumbitTime">XXXX年XX月XX日&nbsp;XX:XX:XX</td><td class="classPlace">教室地址1</td><td class="applyTime">XX月XX日&nbsp;第XX节~第XX节</td><td class="Office">真实存在的单位</td><td class="Applicant">XXX</td><td class="Reason">合乎情理没有毛病的理由</td><td class="authorityAcross_2"><img src="images/tick.png" onClick="show_element(this,0,1);"></td>'}
-                            if(p==1){newTr.innerHTML = '<td class="sumbitTime">XXXX年XX月XX日&nbsp;XX:XX:XX</td><td class="classPlace">教室地址1</td><td class="applyTime">XX月XX日&nbsp;第XX节~第XX节</td><td class="Office">真实存在的单位</td><td class="Applicant">XXX</td><td class="Reason">合乎情理没有毛病的理由</td><td class="authorityAcross_2"><img src="images/tick.png" onClick="show_element(this,0,2);"></td>'}
+                            if(p==0){newTr.innerHTML = '<td class="sumbitTime">XXXX年XX月XX日&nbsp;XX:XX:XX</td>\
+                            <td class="classPlace">教室地址1</td>\
+                            <td class="applyTime">XX月XX日&nbsp;第XX节~第XX节</td>\
+                            <td class="Office">真实存在的单位</td>\
+                            <td class="Applicant">XXX</td>\
+                            <td class="Reason">合乎情理没有毛病的理由</td>\
+                            <td class="authorityAcross_0"><img src="images/frame.png" onClick="show_element(this,-1,0)"></td>\
+                            <td class="authorityAcross_1"><img src="images/frame.png" onClick="show_element(this,1,0)"></td>'}
+                            if(p==-1){newTr.innerHTML = '<td class="sumbitTime">XXXX年XX月XX日&nbsp;XX:XX:XX</td>\
+                            <td class="classPlace">教室地址1</td>\
+                            <td class="applyTime">XX月XX日&nbsp;第XX节~第XX节</td>\
+                            <td class="Office">真实存在的单位</td><td class="Applicant">XXX</td>\
+                            <td class="Reason">合乎情理没有毛病的理由</td><td class="authorityAcross_2">\
+                            <img src="images/tick.png" onClick="show_element(this,0,1);"></td>'}
+                            if(p==1){newTr.innerHTML = '<td class="sumbitTime">XXXX年XX月XX日&nbsp;XX:XX:XX</td>\
+                            <td class="classPlace">教室地址1</td>\
+                            <td class="applyTime">XX月XX日&nbsp;第XX节~第XX节</td>\
+                            <td class="Office">真实存在的单位</td>\
+                            <td class="Applicant">XXX</td>\
+                            <td class="Reason">合乎情理没有毛病的理由</td>\
+                            <td class="authorityAcross_2"><img src="images/tick.png" onClick="show_element(this,0,2);"></td>'}
                             elementParent.appendChild(newTr);
-                            element=document.getElementById(i).getElementsByTagName("td");
-    	                    console.log(data[i]);
+                            element=newTr.getElementsByTagName("td");
     	                    a=data[i].apply_time;//a与提交时间匹配
     	                    element[0].innerHTML=a;
     	                    b=data[i].building_name+" "+data[i].room_name;//b与教室地址匹配；
@@ -171,14 +224,169 @@ function waiting(){
     getTable(0);
 }
 //分页请求
-function page(p){
-	$.ajax({
-		type:"POST",
-		url:"http://bkxjjh.natappfree.cc/seeAuthority",
-		data:{
-				target:'num',
-				status:p,
+// function page(p){
+// 	$.ajax({
+// 		type:"POST",
+// 		url:"http://bkxjjh.natappfree.cc/seeAuthority",
+// 		data:{
+// 				target:'num',
+// 				status:p,
+// 		}
+// 		success:
+// 	});
+// }
+//获取冲突，并在弹窗显示
+function conflict(shu,data,table){
+	var parent,a,b,c,d,e,f,g,h,g;
+	if(data.hasOwnProperty("msg")){
+		if(data.more=="conflict recoder"){
+			parent=shu.parentNode.parentNode;//获取所在的tr;
+			a=parent.getElementsByClassName("applyTime")[0].innerHTML;//获取点击的冲突时间
+			b=parent.getElementsByClassName("Office")[0].innerHTML;//获取点击的冲突单位
+			c=parent.getElementsByClassName("Applicant")[0].innerHTML;//获取点击的申请人
+			d=parent.getElementsByClassName("Reason")[0].innerHTML;//获取点击的原因
+			g=parent.getAttribute("value");
+			openNew(shu,table);
+			e=document.getElementById("popupFirst");//获取悬浮窗表格
+			f=e.getElementsByTagName("tr");//获取tr
+			f[1].setAttribute("value",g);
+			g=f[1].getElementsByTagName("td");//获取第一行的td
+			g[0].innerHTML=b;
+			g[1].innerHTML=c;
+			g[2].innerHTML=d;
+			h=document.getElementById("oTableP");
+			h.innerHTML=a+"的申请有如下冲突：";
+			console.log(data.data);
+            addTable(data.data);
 		}
-		success:
-	});
+		if(data.msg=="success"){
+			first(shu,table);
+		}
+	}else{
+		first(shu,table);
+	}
+}
+// var canK,canTable;
+//创建悬浮框
+function openNew(k,table){
+	//获取页面body！内容！的高度和宽度。
+	var sHeight=document.documentElement.scrollHeight;
+	var sWidth=document.documentElement.scrollWidth;
+	//获取可视区域高度，宽度与页面内容的宽度一样
+	var wHeight=document.documentElement.clientHeight;
+	//创建遮罩层div并插入body
+	var oMask=document.createElement("div");
+		oMask.id="mask";
+		oMask.style.height=sHeight+"px";
+		//宽度直接用100%在样式里
+		document.body.appendChild(oMask);
+			//创建表格层div并插入body
+	var oTable=document.createElement("div");
+		oTable.id="onTable";
+		oTable.innerHTML='<div id="Out">\
+	<h1>冲突提醒</h1>\
+	<p  id="oTableP">xx月xx日&nbap;第XX节-第XX节的申请有如下冲突：</p>\
+	<div id="Popup">\
+		<table id="popupFirst">\
+			<tr id="popupHeader">\
+				<th>申请单位</th>\
+			    <th>申请人</th>\
+			    <th>事由</th>\
+			    <th>通过</th>\
+			</tr>\
+			<tr>\
+				<td class="popup1">惹不起的单位</td>\
+			    <td class="popup1">就是大佬</td>\
+			    <td class="popup2">没有事由我就是来搞笑的</td>\
+			    <td class="popup3">\
+			    	<img src="images/tick.png" onClick="srcReset(this)">\
+			    </td>\
+			</tr>\
+		</table>\
+	</div>\
+	<div id="popupBottom">\
+	    <button id="Cancel">取消</button>\
+	    <button id="Confirm" onClick="confirm()">确认</button>\
+	</div>\
+</div>';
+//confirm(canK,canTable)
+		document.body.appendChild(oTable);
+		//获取login的宽度和高度并设置偏移值
+		var dHeight=oTable.offsetHeight;
+	    var dWidth=oTable.offsetWidth;
+		oTable.style.left=(sWidth-dWidth)/2+"px";
+		oTable.style.top=(wHeight-dHeight)/2+"px";
+		//取消框事件
+		var oCancel=document.getElementById("Cancel");
+		var oConfirm=document.getElementById("Confirm");
+		oCancel.onclick=function(){
+			document.body.removeChild(oMask);
+			document.body.removeChild(oTable);
+		}
+		// canK=k;
+		// canTable=table;
+}
+// function confirm(a,b){
+// 	var oMask=document.getElementById("mask");
+// 	var oTable=document.getElementById("onTable");
+// 	document.body.removeChild(oMask);
+// 	document.body.removeChild(oTable);
+// }
+function confirm(){
+	var $e,e;
+	$e=$("#popupFirst tr td img[src='images/tick.png']");
+	e=$e[0];
+	confirmData(e);
+	var oMask=document.getElementById("mask");
+	var oTable=document.getElementById("onTable");
+	document.body.removeChild(oMask);
+	document.body.removeChild(oTable);
+	getTable(0);
+
+}
+//悬浮窗与表格对应添加
+function addTable(a){
+	var b,c,d,e,f,g,h,i,elementParent;
+	elementParent=document.getElementById("popupFirst");
+	for(i=0;i<a.length;i++){
+	    b=a[i].organization;//获取单位
+	    c=a[i].name;//获取人名
+	    d=a[i].reason;//获取原因
+	    var newTr = document.createElement("tr");
+        newTr.setAttribute("id",i);
+        newTr.setAttribute("value",a[i].id);
+        newTr.innerHTML='<td class="popup1">惹不起的单位</td>\
+		    <td class="popup1">就是大佬</td>\
+			<td class="popup2">没有事由我就是来搞笑的</td>\
+			<td class="popup3">\
+			   <img src="images/frame.png" onClick="srcReset(this)">\
+			</td>';
+        elementParent.appendChild(newTr);
+        element=newTr.getElementsByTagName("td");
+        element[0].innerHTML=b;
+        element[1].innerHTML=c;
+        element[2].innerHTML=d;
+    }
+}
+//打钩后其它图片不可重置src
+function srcReset(a){
+	$("#popupFirst tr td img[src='images/tick.png']").attr('src','images/frame.png'); 
+	a.setAttribute("src","images/tick.png");
+
+}
+function confirmData(now){
+	var Id= $(now).parent().parent().attr('value');
+	$.ajax({
+	type:"POST",
+	url:"http://bkxjjh.natappfree.cc/seeAuthority",
+	data:{
+	        target:'updata',
+		    status:-1,
+		    id:Id,
+		    confirm:1,
+		},
+	success:function(data){
+		console.log(data);
+	}
+})
 }
