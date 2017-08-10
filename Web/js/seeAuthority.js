@@ -13,7 +13,7 @@ window.onload=function(){
 };
 //首次加载获取表格内容
 $(document).ready(function(){
-    getTable(0);
+    getTable(0,0);
 })
 //计算申请的课
 function findClass(a,b){
@@ -39,6 +39,7 @@ function findClass(a,b){
 //点击通过后，向后台发送请求改变数据状态,并且完成一系列操作。
 function show_element(e,ok,table){  //e为当前函数
 	var a,b,c;
+	e.src="images/loading.gif"
 	var Id= $(e).parent().parent().attr('value');
 		$.ajax({
 			 type:"POST",
@@ -79,12 +80,12 @@ function second(e,can){
             if(can==2){a=document.getElementById("tableTbody_2");}
             c=a.getElementsByTagName('tr');//获取所有的tr标签
             if(c.length<3&&can==0){
-    	        getTable(0);
+    	        getTable(0,0);
             }//点击完了重新获取
        },710);
     };
 //获取表格内容
-function getTable(p){
+function getTable(p,page){//第一个参数为表格，第二个参数为页数-1
 	$.ajax({
 			type:"POST",
 			url:"http://bkxjjh.natappfree.cc/seeAuthority",
@@ -145,14 +146,14 @@ function getTable(p){
                             <td class="applyTime">XX月XX日&nbsp;第XX节~第XX节</td>\
                             <td class="Office">真实存在的单位</td><td class="Applicant">XXX</td>\
                             <td class="Reason">合乎情理没有毛病的理由</td><td class="authorityAcross_2">\
-                            <img src="images/tick.png" onClick="show_element(this,0,1);"></td>'}
+                            <img src="images/tick.png" onClick="show_element(this,0,1);getTable(-1,cNow-1);page(-1)"></td>'}
                             if(p==1){newTr.innerHTML = '<td class="sumbitTime">XXXX年XX月XX日&nbsp;XX:XX:XX</td>\
                             <td class="classPlace">教室地址1</td>\
                             <td class="applyTime">XX月XX日&nbsp;第XX节~第XX节</td>\
                             <td class="Office">真实存在的单位</td>\
                             <td class="Applicant">XXX</td>\
                             <td class="Reason">合乎情理没有毛病的理由</td>\
-                            <td class="authorityAcross_2"><img src="images/tick.png" onClick="show_element(this,0,2);"></td>'}
+                            <td class="authorityAcross_2"><img src="images/tick.png" onClick="show_element(this,0,2);getTable(1,cNow-1);page(1)"></td>';}
                             elementParent.appendChild(newTr);
                             element=newTr.getElementsByTagName("td");
     	                    a=data[i].apply_time;//a与提交时间匹配
@@ -174,12 +175,15 @@ function getTable(p){
 			data:{
 				target:'getdata',
 				status:p,
+				yeshu:page,
 			}
 		});
 }
 //点击未通过触发的行为
-function pass(g){
+function pass(k){
+	page(k);
 	var a,b,c,d,m,f;
+	cNow=1;
 	a=document.getElementById("Select");
 	b=a.getElementsByTagName('img');
 	b[0].className="selectImg2";
@@ -191,10 +195,12 @@ function pass(g){
 	$(d).hide();
 	$(m).show();
     $(f).show();
-    getTable(-1);
+    getTable(-1,0);
 }
-function noPass(g){
+function noPass(k){
+	page(k);
 	var a,b,c,d,m,f;
+	cNow=1;
 	a=document.getElementById("Select");
 	b=a.getElementsByTagName('img');
 	b[0].className="selectImg3";
@@ -206,10 +212,11 @@ function noPass(g){
 	$(m).hide();
 	$(d).show();
     $(f).show();
-    getTable(1);
+    getTable(1,0);
 }
 function waiting(){
 	var a,b,c,d,m,f;
+	cNow=1;
 	a=document.getElementById("Select");
 	b=a.getElementsByTagName('img');
 	b[0].className="selectImg1";
@@ -221,7 +228,7 @@ function waiting(){
 	$(m).hide();
 	$(c).show();
     $(f).hide();
-    getTable(0);
+    getTable(0,0);
 }
 //分页请求
 // function page(p){
@@ -320,6 +327,7 @@ function openNew(k,table){
 		var oCancel=document.getElementById("Cancel");
 		var oConfirm=document.getElementById("Confirm");
 		oCancel.onclick=function(){
+			changeImg();
 			document.body.removeChild(oMask);
 			document.body.removeChild(oTable);
 		}
@@ -341,7 +349,7 @@ function confirm(){
 	var oTable=document.getElementById("onTable");
 	document.body.removeChild(oMask);
 	document.body.removeChild(oTable);
-	getTable(0);
+	getTable(0,0);
 
 }
 //悬浮窗与表格对应添加
@@ -390,3 +398,89 @@ function confirmData(now){
 	}
 })
 }
+//把gif重置
+function changeImg(){
+	var a=$("#popupHeader").next().attr("value");
+	console.log(a);
+	console.log($("#tableTbody tr[value="+a+"]"));
+	$("#tableTbody tr[value="+a+"] td img[src='images/loading.gif']").attr("src","images/frame.png");
+}
+
+//分页请求
+function page(p){
+	$.ajax({
+		type:"POST",
+		url:"http://bkxjjh.natappfree.cc/seeAuthority",
+		data:{
+				target:'num',
+				status:p,
+		},
+		success:function(data){
+			sumPage(data.num);
+			//data.num总数
+		}
+	});
+}
+//计算页数
+var cNow=1;//cNow为当前页面
+var aALL;//为计算出来的页数
+function sumPage(e){//e传入总条数
+	var b,d;//b为now/all,d为now/all的a；
+	b=document.getElementById("nowAndAll");
+	d=b.getElementsByTagName("a")[0];
+    (e%15>0)?aALL=Math.floor(e/15+1):aALL=e/15;
+    d.innerHTML=cNow+"/"+aALL;
+    if(aALL<2){
+			$("#pageTurning").hide();//条数为0就隐藏
+		};
+}
+function pageSet(e){
+    var b,d,c,f,aValue;
+    //0为首页，1为前一页，2为后一页，3为尾页,4为确定框
+	b=document.getElementById("nowAndAll");
+	d=b.getElementsByTagName("a")[0];
+	if(e==0){
+		    cNow=1;
+        };//首页重置
+	if(e==1){
+        	if(cNow>1){
+        		cNow=cNow-1;
+        	};
+    };//前页重置
+	if(e==2){
+		if(cNow==aALL){
+       	c=document.getElementById("nextPage");
+	    f=c.getElementsByTagName("a")[0];
+	    $(f).attr("href","javascript:alert('到达最后一页')");
+	    return;
+	}else if(cNow<aALL){
+        	cNow=cNow+1;
+    };//后页重置
+};
+	if(e==3){
+		cNow=aALL;
+	};//尾页重置
+	if(e==4){
+	    aValue=document.getElementById("inputBox");
+	    $aValue=$(aValue).val();
+	    if(aALL<$aValue){
+		    alert("您输入的页数超过总页数！");
+		    return;
+	        }else if($aValue>0){
+		        cNow=$aValue;
+		        console.log(cNow);
+	        }else{return;}
+	    }
+	d.innerHTML=cNow+"/"+aALL;
+    getTable(1,cNow-1);
+}
+//搜索
+// function search(){
+// 	var aValue=document.getElementById("inputBox");
+// 	$aValue=$(aValue).val();
+// 	if(aALL<$aValue){
+// 		alert("您输入的页数超过总页数！");
+// 	}else{
+
+// 	}
+// }

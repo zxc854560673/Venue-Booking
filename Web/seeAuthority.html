@@ -35,15 +35,15 @@
 		<div id="Content">
 			<div id="giveAuthority">
 				<img src="images/icon_check.png"></img>
-				<p>查看预约</p>
-			</div>
+				<p>查看预约</p>     
+			</div> 
 			<div id="line2">
 				<img src="images/line2.jpg">
 			</div>
 			<div id="Select">
 				<a id="Waiting" onClick="waiting()">未审核</a>
-				<a id="Pass" onClick="pass()">已通过</a>
-				<p id="unPass" onClick="noPass()">未通过</a>
+				<a id="Pass" onClick="pass(-1)">已通过</a>
+				<p id="unPass" onClick="noPass(1)">未通过</a>
 				<img src="images/title.png" class="selectImg1"></img>
 			</div>
 			<div id="Table_1">
@@ -80,20 +80,15 @@
 		</div>
 		<div id="pageTurning">
 			<ul id="Page">
-     	        <li id="Index"><a href="#">首页</a></li>
-     	        <li id="prePage"><a href="#">前页</a></li>
-     	        <li id="One"><a href="#">1</a></li>
-     	        <li id="Two"><a href="#">2</a></li>
-     	        <li id="Three"><a href="#">3</a></li>
-     	        <li id="Four"><a href="#">4</a></li>
-     	        <li id="Five"><a href="#">5</a></li>
-     	        <li id="More"><a href="#">...</a></li>
-     	        <li id="nextPage"><a href="#">后页</a></li>
-     	        <li id="lastPage"><a href="#">尾页</a></li>
+     	        <li id="Index"><a href="javascript:pageSet(0)">首页</a></li>
+     	        <li id="prePage"><a href="javascript:pageSet(1)">前页</a></li>
+     	        <li id="nowAndAll"><a>1/n</a></li>
+     	        <li id="nextPage"><a href="javascript:pageSet(2)">后页</a></li>
+     	        <li id="lastPage"><a href="javascript:pageSet(3)">尾页</a></li>
      	        <li id="buttomSearch">
      		        <span>第
-     			        <input type="text" name="buttomSearch" >
-     			        <input type="button" name="buttomSearch" value="搜索">
+     			        <input type="text" id="inputBox">
+     			        <input type="button" value="搜索" onclick="pageSet(4)">
      		        </span>
      	       </li>
             </ul>
