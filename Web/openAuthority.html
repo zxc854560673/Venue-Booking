@@ -4,17 +4,17 @@
 	<title>青朴课室预约管理员开放授权页面</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="CSS/openAuthority.css">
-	<script type="text/javascript" src="js/openAuthority.js"></script>
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/openAuthority.js"></script>	
 </head>
 <body>
-	<div>
+	<div id="All">
 		<div id="Header">
 			<div id="headerLeft">
 				<span id="Logo"></span>
 				<h1>青朴课室预约管理系统</h1>
 			</div>
-			<div id="right_green"><div>在线预约</div></div>
+			<div id="right_green"><div>在线预约</div></div>SS
 			<div id="headerRight">
 				<div><a href="#">查看预约</a></div>
 				<div><a href="#">开放权限</a></div>
@@ -40,7 +40,7 @@
 				<img src="images/line2.jpg"></img>
 			</div>
 			<div id="Select">
-				<p id="roomAuthority">管理教室权限</p>
+				<p id="roomAuthority" onclick="textClick(0)">管理教室权限</p>
 				<p id="userAuthority">管理用户权限</p>
 				<img src="images/choose.png"></img>
 				<div id="Search">
@@ -49,176 +49,31 @@
 				</div>
 			</div>
 			<div id="Table_1">
-				<table class="Classroom">
-					<tbody>
+				<table class="classRoom">
+					<tbody id="tbody1">
 						<tr id="header">
 							<th>学校建筑</th>
-						</tr>
-						<tr>
-							<td class="Building">建筑物1</td>
-						</tr>
-						<tr>
-							<td class="Building">建筑物1</td>
-						</tr>
-						<tr>
-							<td class="Building">建筑物1</td>
-						</tr>
-						<tr>
-							<td class="Building">建筑物1</td>
-						</tr>
-						<tr>
-							<td class="Building">建筑物1</td>
-						</tr>
-						<tr>
-							<td class="Building">建筑物1</td>
-						</tr>
-						<tr>
-							<td class="Building">建筑物1</td>
-						</tr>
-						<tr>
-							<td class="Building">建筑物1</td>
-						</tr>
-						<tr>
-							<td class="Building">建筑物1</td>
-						</tr>
-						<tr>
-							<td class="Building">建筑物1</td>
-						</tr>
-						<tr>
-							<td class="Building">建筑物1</td>
-						</tr>
-						<tr>
-							<td class="Building">建筑物1</td>
-						</tr>
-						<tr>
-							<td class="Building">建筑物1</td>
-						</tr>
-						<tr>
-							<td class="Building">建筑物1</td>
-						</tr>
-						<tr>
-							<td class="Building">建筑物1</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 			<div id="Table_2">
-				<table class="Classroom">
-					<tbody>
+				<table class="classRoom">
+					<tbody id="tbody2">
 						<tr id="header_2">
 							<th>教室</th>
 							<th>开放/关闭权限</th>
 						</tr>
-						<tr>
-							<td class="RoomAuthority">XXX</td>
+						<td class="RoomAuthority">XXX</td>
 							<td class="authorityAcross">
 								<img src="images/frame.png">
 							</td>
-						</tr>
-						<tr>
-							<td class="RoomAuthority">XXX</td>
-							<td class="authorityAcross">
-								<img src="images/frame.png">
-							</td>
-						</tr>
-						<tr>
-							<td class="RoomAuthority">XXX</td>
-							<td class="authorityAcross">
-								<img src="images/frame.png">
-							</td>
-						</tr>
-						<tr>
-							<td class="RoomAuthority">XXX</td>
-							<td class="authorityAcross">
-								<img src="images/frame.png">
-							</td>
-						</tr>
-						<tr>
-							<td class="RoomAuthority">XXX</td>
-							<td class="authorityAcross">
-								<img src="images/frame.png">
-							</td>
-						</tr>
-						<tr>
-							<td class="RoomAuthority">XXX</td>
-							<td class="authorityAcross">
-								<img src="images/frame.png">
-							</td>
-						</tr>
-						<tr>
-							<td class="RoomAuthority">XXX</td>
-							<td class="authorityAcross">
-								<img src="images/frame.png">
-							</td>
-						</tr>
-						<tr>
-							<td class="RoomAuthority">XXX</td>
-							<td class="authorityAcross">
-								<img src="images/frame.png">
-							</td>
-						</tr>
-						<tr>
-							<td class="RoomAuthority">XXX</td>
-							<td class="authorityAcross">
-								<img src="images/frame.png">
-							</td>
-						</tr>
-						<tr>
-							<td class="RoomAuthority">XXX</td>
-							<td class="authorityAcross">
-								<img src="images/frame.png">
-							</td>
-						</tr>
-						<tr>
-							<td class="RoomAuthority">XXX</td>
-							<td class="authorityAcross">
-								<img src="images/frame.png">
-							</td>
-						</tr>
-						<tr>
-							<td class="RoomAuthority">XXX</td>
-							<td class="authorityAcross">
-								<img src="images/frame.png">
-							</td>
-						</tr>
-						<tr>
-							<td class="RoomAuthority">XXX</td>
-							<td class="authorityAcross">
-								<img src="images/frame.png">
-							</td>
-						</tr>
-						<tr>
-							<td class="RoomAuthority">XXX</td>
-							<td class="authorityAcross">
-								<img src="images/frame.png">
-							</td>
-						</tr>
-						<tr>
-							<td class="RoomAuthority">XXX</td>
-							<td class="authorityAcross">
-								<img src="images/frame.png">
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div id="Table_3">
-				<table class="Classroom">
-					<tbody>
-						<tr id="header_3">
-							<th>用户类型</th>
-							<th>开放/关闭权限</th>
-						</tr>
-						<tr>
-							<td class="typeTeacher">教师</td>
-							<td class="typeStudent">学生</td>
-						</tr>
 					</tbody>
 				</table>
 			</div>
 			<div id="Table_4">
-				<table class="Classroom">
-					<tbody>
+				<table class="classRoom">
+					<tbody id="tbody4">
 						<tr id="header_4">
 							<th rowspan="2">姓名</th>
 							<th colspan="3">权限等级</th>
@@ -231,7 +86,7 @@
 						<tr>
 							<td class="personName">XXX</td>
 							<td class="Across">
-								<img src="images/frame.png">
+								<img src="images/tick.png">
 							</td>
 							<td class="Across">
 								<img src="images/frame.png">
@@ -243,7 +98,7 @@
 						<tr>
 							<td class="personName">XXX</td>
 							<td class="Across">
-								<img src="images/frame.png">
+								<img src="images/tick.png">
 							</td>
 							<td class="Across">
 								<img src="images/frame.png">
@@ -255,7 +110,7 @@
 						<tr>
 							<td class="personName">XXX</td>
 							<td class="Across">
-								<img src="images/frame.png">
+								<img src="images/tick.png">
 							</td>
 							<td class="Across">
 								<img src="images/frame.png">
@@ -267,7 +122,7 @@
 						<tr>
 							<td class="personName">XXX</td>
 							<td class="Across">
-								<img src="images/frame.png">
+								<img src="images/tick.png">
 							</td>
 							<td class="Across">
 								<img src="images/frame.png">
@@ -279,7 +134,7 @@
 						<tr>
 							<td class="personName">XXX</td>
 							<td class="Across">
-								<img src="images/frame.png">
+								<img src="images/tick.png">
 							</td>
 							<td class="Across">
 								<img src="images/frame.png">
@@ -291,7 +146,7 @@
 						<tr>
 							<td class="personName">XXX</td>
 							<td class="Across">
-								<img src="images/frame.png">
+								<img src="images/tick.png">
 							</td>
 							<td class="Across">
 								<img src="images/frame.png">
@@ -303,7 +158,7 @@
 						<tr>
 							<td class="personName">XXX</td>
 							<td class="Across">
-								<img src="images/frame.png">
+								<img src="images/tick.png">
 							</td>
 							<td class="Across">
 								<img src="images/frame.png">
@@ -315,7 +170,7 @@
 						<tr>
 							<td class="personName">XXX</td>
 							<td class="Across">
-								<img src="images/frame.png">
+								<img src="images/tick.png">
 							</td>
 							<td class="Across">
 								<img src="images/frame.png">
@@ -327,7 +182,7 @@
 						<tr>
 							<td class="personName">XXX</td>
 							<td class="Across">
-								<img src="images/frame.png">
+								<img src="images/tick.png">
 							</td>
 							<td class="Across">
 								<img src="images/frame.png">
@@ -339,7 +194,7 @@
 						<tr>
 							<td class="personName">XXX</td>
 							<td class="Across">
-								<img src="images/frame.png">
+								<img src="images/tick.png">
 							</td>
 							<td class="Across">
 								<img src="images/frame.png">
@@ -351,7 +206,7 @@
 						<tr>
 							<td class="personName">XXX</td>
 							<td class="Across">
-								<img src="images/frame.png">
+								<img src="images/tick.png">
 							</td>
 							<td class="Across">
 								<img src="images/frame.png">
@@ -363,7 +218,7 @@
 						<tr>
 							<td class="personName">XXX</td>
 							<td class="Across">
-								<img src="images/frame.png">
+								<img src="images/tick.png">
 							</td>
 							<td class="Across">
 								<img src="images/frame.png">
@@ -375,7 +230,7 @@
 						<tr>
 							<td class="personName">XXX</td>
 							<td class="Across">
-								<img src="images/frame.png">
+								<img src="images/tick.png">
 							</td>
 							<td class="Across">
 								<img src="images/frame.png">
@@ -387,7 +242,7 @@
 						<tr>
 							<td class="personName">XXX</td>
 							<td class="Across">
-								<img src="images/frame.png">
+								<img src="images/tick.png">
 							</td>
 							<td class="Across">
 								<img src="images/frame.png">
@@ -396,10 +251,10 @@
 								<img src="images/frame.png">
 							</td>
 						</tr>
-						<tr>
+						<tr>	
 							<td class="personName">XXX</td>
 							<td class="Across">
-								<img src="images/frame.png">
+								<img src="images/tick.png">
 							</td>
 							<td class="Across">
 								<img src="images/frame.png">
@@ -431,12 +286,13 @@
      	       </li>
             </ul>
 		</div>
-		<div id="Footer">
+	</div>
+</div>
+	<div id="Footer">
 			<div>
 				<img src="images/copyright.png">
 				<a href="http://www.greenhoper.com/">2017&nbsp青朴科技</a>
 			</div>
-		</div>
 	</div>
 </body>
 </html>

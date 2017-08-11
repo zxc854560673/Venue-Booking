@@ -233,13 +233,14 @@ input::-webkit-input-placeholder{
 #Table_1{
 	width:1160px;
   margin:0px auto 0px auto;
+  display:none;
 }
-.Classroom{
-	font-family: "MicrosoftYaHeu";
-	font-size: 14px; 
-	border: solid 1px #e1e1e1;
-	border-collapse: collapse;
-	text-align: center;
+.classRoom{
+	  font-family: "MicrosoftYaHeu";
+	  font-size: 14px; 
+	  border: solid 1px #e1e1e1;
+	  border-collapse: collapse;
+	  text-align: center;
 }
 #header th{
   width:1160px;
@@ -260,7 +261,8 @@ input::-webkit-input-placeholder{
 #Table_2{
   width:1160px;
   margin:0px auto 0px auto;
-  display:none;
+
+
 }
 #header_2 th{
   width: 580px;
@@ -286,40 +288,10 @@ input::-webkit-input-placeholder{
   vertical-align: middle;
   border: solid 1px #e1e1e1; 
 }
-#Table_3{
-  width:1160px;
-  margin:0px auto 550px auto;
-  display:none;
-}
-#header_3 th{
-  width: 1160px;
-  height: 58px; 
-  background-color: #31c978;
-  color: #ffffff;
-  vertical-align: middle;
-  border: solid 1px #e1e1e1;
-}
-.typeTeacher{
-  width:580px;
-  height: 78px; 
-  background-color: #ffffff;
-  color: #363636;
-  vertical-align: middle;
-  border: solid 1px #e1e1e1; 
-}
-.typeStudent{
-  width:580px;
-  height: 78px; 
-  background-color: #ffffff;
-  color: #363636;
-  vertical-align: middle;
-  border: solid 1px #e1e1e1; 
-}
 #Table_4{
   width:1160px;
   margin:0px auto 0px auto;
   display:none;
-  
 }
 #header_4 th[rowspan="2"]{
   width: 560px;
