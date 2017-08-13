@@ -233,7 +233,6 @@ input::-webkit-input-placeholder{
 #Table_1{
 	width:1160px;
   margin:0px auto 0px auto;
-  display:none;
 }
 .classRoom{
 	  font-family: "MicrosoftYaHeu";
@@ -261,6 +260,7 @@ input::-webkit-input-placeholder{
 #Table_2{
   width:1160px;
   margin:0px auto 0px auto;
+  display:none;
 }
 #header_2 :first-child{
   width: 580px;
@@ -342,6 +342,7 @@ input::-webkit-input-placeholder{
 .personName{
   width:560px;
   height: 38px; 
+
   background-color: #ffffff;
   color: #363636;
   vertical-align: middle;
