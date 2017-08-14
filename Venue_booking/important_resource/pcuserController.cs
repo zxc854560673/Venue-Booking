@@ -15,30 +15,33 @@ namespace Venue_booking.Controllers
 {
     public class pcuserController : Controller
     {
+        public static ViewDataDictionary first(Dictionary<string, string> user_all,ViewDataDictionary ViewData) {
+            ViewData["user_name"] = user_all["wc_name"];
+            if (System.IO.File.Exists(mi.local + @"Content\user_img\" + user_all["id"] + ".jpg"))
+            {
+                ViewData["img_id"] = user_all["id"];
+            }
+            else
+            {
+                ViewData["img_id"] = "0";
+            }
+            if (user_all["wc_lastlogin"] != "")
+            {
+                ViewData["lastlogin_time"] = "上次登陆时间：" + DateTime.Parse(user_all["wc_lastlogin"]).ToString("yyyy-MM-dd HH:mm:ss");
+            }
+            else
+            {
+                ViewData["lastlogin_time"] = "尚未登录过";
+            }
+            return ViewData;
+        }
         // GET: pcuser
         public ActionResult index()
         {
 
             if (System.Web.HttpContext.Current.Session["login"] == null) return Redirect("/login");
             //登陆成功，取得用户基本信息
-            var user_all = (Dictionary<string, string>)Session["user_all"];
-            ViewData["user_name"] = user_all["wc_name"];
-            if (System.IO.File.Exists(mi.local + @"Content\user_img\" + user_all["id"] + ".jpg"))
-            {
-                ViewData["img_id"] = user_all["id"];
-            }
-            else {
-                ViewData["img_id"] = "0";
-            }
-            
-            //test.log("数据：" + user_all["wc_lastlogin"]);
-            if (user_all["wc_lastlogin"] != "")
-            {
-                ViewData["lastlogin_time"] = "上次登陆时间：" + DateTime.Parse(user_all["wc_lastlogin"]).ToString("yyyy-MM-dd HH:mm:ss");
-            }
-            else {
-                ViewData["lastlogin_time"] = "尚未登录过";
-            }
+            ViewData = first((Dictionary<string, string>)Session["user_all"],ViewData);
             return View();
         }
         [System.Web.Mvc.HttpGet]
@@ -67,9 +70,17 @@ namespace Venue_booking.Controllers
             return JavaScript("location.href='/index';");
         }
 
+        [System.Web.Mvc.HttpGet]
+        public ActionResult seeAuthority(int a=0) {
+            if (System.Web.HttpContext.Current.Session["login"] == null) return Redirect("/login");
+            //登陆成功，取得用户基本信息
+            ViewData = first((Dictionary<string, string>)Session["user_all"], ViewData);
+            return View();
+        }
+
         [System.Web.Mvc.HttpPost]
         public ActionResult seeAuthority() {
-            //if (System.Web.HttpContext.Current.Session["login"] != null && System.Web.HttpContext.Current.Session["login"].ToString() == "success") return Redirect("/index");
+            //if (System.Web.HttpContext.Current.Session["login"] != null) return Redirect("/login");
             //if (int.Parse(((Dictionary<string, string>)Session["user_all"])["wc_identify"]) < 1) return Json(new { msg = "error", more = "Insufficient permissions" });
             //Response.Headers.Set("Access-Control-Allow-Origin", "*");//仅供跨域测试使用
             if (Request.Form["target"]==null) return Json(new { msg = "error", more = "parameter error" });
@@ -85,7 +96,8 @@ namespace Venue_booking.Controllers
                 cz.Add("yeshu", cl * 15);
                 cz.Add("zongshu", (cl + 1) * 15);
                 var z = mi.wc.data_search_self("select id,wc_name,building_name,room_name,apply_time,apply_for_time,start_time,end_time,organization,reason,status from(select top (@zongshu) wc_recoder.id,wc_name,building_name,room_name,apply_time,apply_for_time,start_time,end_time,organization,reason,status,ROW_NUMBER() over (order by wc_recoder.id)n from wc_recoder left join wc_building on wc_recoder.room_id=wc_building.id left join wc_user_all on wc_recoder.applyer_id=wc_user_all.id where status=@status)kco where n>@yeshu order by n", cz);
-                if (z == null) return Json(new { msg="error",more="no more recoder"});
+                if (z == null) return Json(new { detail=new { num="0"}});
+                var qc = mi.wc.data_search_self("select COUNT(id) as num from wc_recoder where status=@status", cz);
                 var iop = new object[] { }.ToList();
                 foreach (var c in z)
                 {
@@ -104,7 +116,9 @@ namespace Venue_booking.Controllers
                         status = c.Value["status"]
                     });
                 }
-                return Json(iop.ToArray());
+                var deti = new { num = qc[0]["num"] };
+                var ddl = new { detail = deti, data = iop.ToArray() };
+                return Json(ddl);
             }
             if (Request.Form["target"] == "updata") {
                 if (Request.Form["status"] == null) return Json(new { msg = "error", more = "parameter error" });
@@ -116,7 +130,7 @@ namespace Venue_booking.Controllers
                 if (!int.TryParse(Request.Form["status"].ToString(), out cl)) return Json(new { msg = "error", more = "parameter error" });
                 if (cl == -1)
                 {
-                    var c = mi.wc.data_search_self("select wc_recoder.id,wc_building.building_name,wc_building.room_name,wc_name,wc_recoder.apply_time,wc_recoder.apply_for_time,wc_recoder.start_time,ck.end_time,wc_recoder.reason,wc_recoder.organization,wc_recoder.status from wc_recoder,(select * from wc_recoder as cl where id=@id)ck left join wc_user_all on ck.applyer_id=wc_user_all.id left join wc_building on ck.room_id=wc_building.id where wc_recoder.apply_for_time=ck.apply_for_time  and not (wc_recoder.id=ck.id) and (case when wc_recoder.start_time>ck.start_time then wc_recoder.start_time else ck.start_time end)<(case when wc_recoder.end_time<ck.end_time then wc_recoder.end_time else ck.end_time end)", a);
+                    var c = mi.wc.data_search_self("select wc_recoder.id,wc_building.building_name,wc_building.room_name,wc_name,wc_recoder.apply_time,wc_recoder.apply_for_time,wc_recoder.start_time,ck.end_time,wc_recoder.reason,wc_recoder.organization,wc_recoder.status from wc_recoder,(select * from wc_recoder as cl where id=@id)ck left join wc_user_all on ck.applyer_id=wc_user_all.id left join wc_building on ck.room_id=wc_building.id where wc_recoder.status=0 and wc_recoder.apply_for_time=ck.apply_for_time  and not (wc_recoder.id=ck.id) and (case when wc_recoder.start_time>ck.start_time then wc_recoder.start_time else ck.start_time end)<(case when wc_recoder.end_time<ck.end_time then wc_recoder.end_time else ck.end_time end)", a);
                     if (c != null)
                     {
                         var iop = new object[] { }.ToList();
@@ -176,10 +190,16 @@ namespace Venue_booking.Controllers
             }
             return Json(new { msg = "error", more = "parameter error" });
         }
-
+        [System.Web.Mvc.HttpGet]
+        public ActionResult openAuthority(int p = 0) {
+            if (System.Web.HttpContext.Current.Session["login"] == null) return Redirect("/login");
+            //登陆成功，取得用户基本信息
+            ViewData = first((Dictionary<string, string>)Session["user_all"], ViewData);
+            return View();
+        }
         [System.Web.Mvc.HttpPost]
         public ActionResult openAuthority() {
-            //if (System.Web.HttpContext.Current.Session["login"] != null && System.Web.HttpContext.Current.Session["login"].ToString() == "success") return Redirect("/index");
+            //if (System.Web.HttpContext.Current.Session["login"] != null) return Redirect("/login");
             //if (int.Parse(((Dictionary<string, string>)Session["user_all"])["wc_identify"]) < 1) return Json(new { msg = "error", more = "Insufficient permissions" });
             //Response.Headers.Set("Access-Control-Allow-Origin", "*");//仅供跨域测试使用
             if (Request.Form["target"] == null) return Json(new { msg = "error", more = "parameter error" });
@@ -268,7 +288,7 @@ namespace Venue_booking.Controllers
                     biu.Add("yeshu", yeshu);
                     biu.Add("tiaoshu", 15);
                     var suu = mi.wc.data_search_self(sear_2, biu);
-                    if (suu == null) return Json(new { msg = "error", more = "parameter error" });
+                    if (suu == null) return Json(new { detail = new { num = "0" } });
                     var asear_return = (new object[] { }).ToList();
                     for (int i = 0; i < suu.Count; i++)
                     {

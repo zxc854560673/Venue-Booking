@@ -1,0 +1,110 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>青朴课室预约管理员开放授权页面</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS/seeAuthority.css">
+    <script type="text/javascript" src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/seeAuthority.js"></script>
+
+</head>
+<body>
+    <div id="ALL">
+        <div id="Header">
+            <div id="headerLeft">
+                <span id="Logo"></span>
+                <h1>青朴课室预约管理系统</h1>
+            </div>
+            <div id="right_green"><div>在线预约</div></div>
+            <div id="headerRight">
+                <div><a href="#">查看预约</a></div>
+                <div><a href="#">开放权限</a></div>
+                <div><a href="#">我的账户</a></div>
+            </div>
+        </div>
+        <div id="Slider">
+            <div id="Circle">
+                <img src="~/Content/user_img/@(ViewData["img_id"]).jpg" style="height: 120px;width:120px;border-radius:50%;">
+            </div>
+            <div>
+                <div id="Welcome">你好，@ViewData["user_name"]</div>
+                <img src="~/Content/images/banner_edit.png">
+                <div id="Edit">编辑资料</div>
+            </div>
+            <div id="line"></div>
+            <div id="time">@ViewData["lastlogin_time"]</div>
+        </div>
+        <div id="Content">
+            <div id="giveAuthority">
+                <img src="~/Content/images/icon_check.png">
+                <p>查看预约</p>
+            </div>
+            <div id="line2">
+                <img src="~/Content/images/line2.jpg">
+            </div>
+            <div id="Select">
+                <a id="Waiting" onClick="waiting()">未审核</a>
+                <a id="Pass" onClick="pass(-1)">已通过</a>
+                <p id="unPass" onClick="noPass(1)">
+                    未通过</a>
+                    <img src="~/Content/images/title.png" class="selectImg1">
+            </div>
+            <div id="Table_1">
+                <table id="Classroom">
+                    <tbody id="tableTbody">
+                        <tr id="header">
+                            <th rowspan="2">提交时间</th>
+                            <th rowspan="2">教室地址</th>
+                            <th rowspan="2">申请时间</th>
+                            <th rowspan="2">申请单位</th>
+                            <th rowspan="2">申请人</th>
+                            <th rowspan="2">事由</th>
+                            <th colspan="2">审核</th>
+                        </tr>
+                        <tr id="header_2">
+                            <th>通过</th>
+                            <th>不通过</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="Table_2">
+            <table id="Classroom_2">
+                <tbody id="tableTbody_1"></tbody>
+            </table>
+        </div>
+        <div id="Table_3">
+            <table id="Classroom_3">
+                <tbody id="tableTbody_2"></tbody>
+            </table>
+        </div>
+        <div id="pageTurning">
+            <ul id="Page">
+                <li id="Index"><a href="javascript:pageSet(0)">首页</a></li>
+                <li id="prePage"><a href="javascript:pageSet(1)">前页</a></li>
+                <li id="nowAndAll"><a>1/n</a></li>
+                <li id="nextPage"><a href="javascript:pageSet(2)">后页</a></li>
+                <li id="lastPage"><a href="javascript:pageSet(3)">尾页</a></li>
+                <li id="buttomSearch">
+                    <span>
+                        第
+                        <input type="text" id="inputBox">
+                        <input type="button" value="搜索" onclick="pageSet(4)">
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="Footer">
+        <div>
+            <img src="~/Content/images/copyright.png">
+            <a href="http://www.greenhoper.com/">2017&nbsp青朴科技</a>
+        </div>
+    </div>
+</body>
+</html>

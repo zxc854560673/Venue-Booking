@@ -5,7 +5,7 @@ body{
 #Header{
 	margin: 0;
 	padding: 0；
-	width:1920px;
+	width:100%;
 	height: 50px;
 	background-color: rgb(255,255,255);
 }
@@ -72,7 +72,7 @@ body{
     line-height: 50px;
 }
 #Slider{
-	width: 1920px;
+	width: 100%;
 	height:150px;
 	background:url("../images/banner.jpg");
 	position: relative;
@@ -150,92 +150,213 @@ body{
 	padding: 0px;
 }
 #line2 img{
-	margin: 15px 0px 20px 360px;
+	margin: 15px 0px 0px 360px;
 }
-#Teacher{
-	margin-bottom: 15px; 
+#Select{
+  width:1160px;
+  height:51px;
+	margin: 15px auto 0px auto; 
+  position:relative;
 }
-#Teacher img{
-	margin: 0px 5px 0px 380px;
-	display: inline-block;
-}
-#Teacher p{
-    margin: 0px;
-    padding: 0px;
-    font-weight: bold;
+#roomAuthority{
+    margin:0px;
+    padding:0px;
     font-size: 16px;
     color: #363636; 
     display: inline-block;
-    vertical-align: top;
+    vertical-align:top;
+}
+#userAuthority{
+    margin:0px;
+    margin-left:25px;
+    padding: 0px;
+    font-size: 16px;
+    color: #363636; 
+    display: inline-block;
+    vertical-align:top;
+}
+#Select img{
+  position:absolute;
+  left:0px;
+  bottom:20px;
+  display:inline-block;
+}
+#Search{
+  margin:0px;
+  padding:0px;
+  display:inline-block;
+  position:absolute;
+  bottom:22px;
+  right:0px;
+}
+#Search input[type="text"]{
+    width: 150px;
+    height: 25px;
+    padding:0px;
+    font-family: "MicrosoftYaHei";
+    font-size: 14px; 
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    vertical-align: bottom;
+}
+#Search input[type="button"]{
+    width: 50px;
+    height: 25px;
+    margin-left:15px;
+    font-family: "MicrosoftYaHei";
+    font-size: 14px;
+    color:#ffffff; 
+    background-color:#31c978;
+    border: 1px solid #31c978;
+    border-radius: 5px;
+    vertical-align: bottom;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #989898!important;
+    text-align:center;
+}
+
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #989898!important;
+    text-align:center;
+}
+
+input:-ms-input-placeholder{
+    color: #989898e!important;
+    text-align:center;
+}
+
+input::-webkit-input-placeholder{
+    color: #989898!important;
+    text-align:center;
 }
 #Table_1{
-	margin-left: 380px;
+	width:1160px;
+  margin:0px auto 0px auto;
 }
-#Classroom{
-	font-family: "MicrosoftYaHeu";
-	font-size: 14px; 
-/*	width:100%;*/
-	border: solid 1px #e1e1e1;
-	border-collapse: collapse;
-	text-align: center;
+.classRoom{
+	  font-family: "MicrosoftYaHeu";
+	  font-size: 14px; 
+	  border: solid 1px #e1e1e1;
+	  border-collapse: collapse;
+	  text-align: center;
 }
-#header :first-child{
-   width: 576px;
-   height: 58px;
-   background-color: #31c978;
-   font-weight: bold; 
-   color: #ffffff;
-   vertical-align: middle;
-   border: solid 1px #e1e1e1;
-}
-#header :nth-child(2){
-   width: 276px;
-   height: 58px;
-   background-color: #31c978;
-   font-weight: bold; 
-   color: #ffffff;
-   vertical-align: middle;
-   border: solid 1px #e1e1e1;	
-}
-#header :last-child{
-   width: 296px;
-   height: 58px;
-   background-color: #31c978;
-   font-weight: bold; 
-   color: #ffffff;
-   vertical-align: middle;
-   border: solid 1px #e1e1e1;	
+#header th{
+  width:1160px;
+  height: 58px; 
+  background-color: #31c978;
+  color: #ffffff;
+  vertical-align: middle;
+  border: solid 1px #e1e1e1;
 }
 .Building{
-   width: 576px;
-   height: 119px;
-   background-color: #ffffff;
-   font-weight: bold; 
-   color: #363636;
-   vertical-align: middle;
-   border: solid 1px #e1e1e1;
+  width:1160px;
+  height: 38px; 
+  background-color: #ffffff;
+  color: #363636;
+  vertical-align: middle;
+  border: solid 1px #e1e1e1;
 }
-.Room{
-   width: 276px;
-   height: 29px;
-   background-color: #ffffff;
-   font-weight: bold; 
-   color: #363636;
-   vertical-align: middle;
-   border: solid 1px #e1e1e1;
+#Table_2{
+  width:1160px;
+  margin:0px auto 0px auto;
+  display:none;
 }
-.authoritySet{
-	width: 296px;
-   height: 29px;
-   background-color: #ffffff;
-   font-weight: bold; 
-   color: #363636;
-   vertical-align: middle;
-   border: solid 1px #e1e1e1;
+#header_2 :first-child{
+  width: 580px;
+  height: 58px; 
+  background-color: #31c978;
+  color: #ffffff;
+  vertical-align: middle;
+  border: solid 1px #e1e1e1;
 }
-/*.authoritySet input{
-	display: none;
-}*/
+#header_2 :nth-child(2){
+  width: 290px;
+  height: 58px; 
+  background-color: #31c978;
+  color: #ffffff;
+  vertical-align: middle;
+  border: solid 1px #e1e1e1;
+}
+#header_2 :last-child{
+  width: 290px;
+  height: 58px; 
+  background-color: #31c978;
+  color: #ffffff;
+  vertical-align: middle;
+  border: solid 1px #e1e1e1;
+}
+.RoomAuthority{
+  width:580px;
+  height: 38px; 
+  background-color: #ffffff;
+  color: #363636;
+  vertical-align: middle;
+  border: solid 1px #e1e1e1; 
+}
+.authorityAcross{
+  width:290px;
+  height: 38px; 
+  background-color: #ffffff;
+  color: #363636;
+  vertical-align: middle;
+  border: solid 1px #e1e1e1; 
+}
+.select{
+  width:290px;
+  height: 38px; 
+  background-color: #ffffff;
+  color: #363636;
+  vertical-align: middle;
+  border: solid 1px #e1e1e1; 
+  text-align: -webkit-center;
+}
+#Table_4{
+  width:1160px;
+  margin:0px auto 0px auto;
+  display:none;
+}
+#header_4 th[rowspan="2"]{
+  width: 560px;
+  height: 58px; 
+  background-color: #31c978;
+  color: #ffffff;
+  vertical-align: middle;
+  border: solid 1px #e1e1e1;
+}
+#header_4 th[colspan="3"]{
+  width: 560px;
+  height: 28px; 
+  background-color: #31c978;
+  color: #ffffff;
+  vertical-align: middle;
+  border: solid 1px #e1e1e1;
+}
+#header_4_2 th{
+  width: 560px;
+  height: 29px; 
+  background-color: #31c978;
+  color: #ffffff;
+  vertical-align: middle;
+  border: solid 1px #e1e1e1;
+}
+.personName{
+  width:560px;
+  height: 38px; 
+
+  background-color: #ffffff;
+  color: #363636;
+  vertical-align: middle;
+  border: solid 1px #e1e1e1; 
+}
+.Across{
+  width:200px;
+  height: 38px; 
+  background-color: #ffffff;
+  color: #363636;
+  vertical-align: middle;
+  border: solid 1px #e1e1e1; 
+}
 #User{
 	margin-top: 15px; 
 }
@@ -252,101 +373,128 @@ body{
     display: inline-block;
     vertical-align: top;
 }
-#Table_2{
-	margin-left: 380px;
-	margin-top:15px;
+#pageTurning{
+  margin:30px auto auto 0;
+  padding:0px;
+  text-align: center;
 }
-#userManage{
-	font-family: "MicrosoftYaHeu";
-	font-size: 14px; 
-	border: solid 1px #e1e1e1;
-	border-collapse: collapse;
-	text-align: center;
+#Page{
+  list-style-type:none;
+  font-family:"MicrosoftYaHeiLight";
 }
-#header_2 :first-child{
-   width: 576px;
-   height: 58px;
-   background-color: #31c978;
-   font-weight: bold; 
-   color: #ffffff;
-   vertical-align: middle;
-   border: solid 1px #e1e1e1;
+#Page li{
+  display:inline-block;
 }
-#header_2 :nth-child(2){
-   width: 276px;
-   height: 58px;
-   background-color: #31c978;
-   font-weight: bold; 
-   color: #ffffff;
-   vertical-align: middle;
-   border: solid 1px #e1e1e1;	
+#Page li a{
+  text-decoration:none;
+  color:#363636;
+  font-size:14px;
 }
-#header_2 :last-child{
-   width: 296px;
-   height: 28px;
-   background-color: #31c978;
-   font-weight: bold; 
-   color: #ffffff;
-   vertical-align: middle;
-   border: solid 1px #e1e1e1;	
+#Index{
+  display:inline-block;
+  margin:0px;
+  padding:0px;
 }
-.Rank{
-   width: 98px;
-   height: 28px;
-   background-color: #31c978;
-   font-weight: bold; 
-   color: #ffffff;
-   vertical-align: middle;
-   border: solid 1px #e1e1e1;
+#prePage{
+  display:inline-block;
+  margin:0px 16px 0px 16px;
+  padding:0px;
 }
-.Type{
-   width: 576px;
-   height: 179px;
-   background-color: #ffffff;
-   font-weight: bold; 
-   color: #363636;
-   vertical-align: middle;
-   border: solid 1px #e1e1e1;
+#one{
+  display:inline-block;
+  margin:0px 10px 0px 0px;
+  padding:0px;
 }
-.Name{
-   width: 276px;
-   height: 29px;
-   background-color: #ffffff;
-   font-weight: bold; 
-   color: #363636;
-   vertical-align: middle;
-   border: solid 1px #e1e1e1;
+#two{
+  display:inline-block;
+  margin:0px 10px 0px 0px;
+  padding:0px;
 }
-.rankStudent{
-   width: 99px;
-   height: 29px;
-   background-color: #ffffff;
-   font-weight: bold; 
-   color: #363636;
-   vertical-align: middle;
-   border: solid 1px #e1e1e1;
+#three{
+  display:inline-block;
+  margin:0px 10px 0px 0px;
+  padding:0px;
 }
-.rankTeacher{
-   width: 99px;
-   height: 29px;
-   background-color: #ffffff;
-   font-weight: bold; 
-   color: #363636;
-   vertical-align: middle;
-   border: solid 1px #e1e1e1;
+#four{
+  display:inline-block;
+  margin:0px 10px 0px 0px;
+  padding:0px;
 }
-.rankManager{
-   width: 99px;
-   height: 29px;
-   background-color: #ffffff;
-   font-weight: bold; 
-   color: #363636;
-   vertical-align: middle;
-   border: solid 1px #e1e1e1;
+#Five{
+  display:inline-block;
+  margin:0px 10px 0px 0px;
+  padding:0px;
+}
+#More{
+  display:inline-block;
+  margin:0px 0px 0px 0px;
+  padding:0px;
+}
+#nextPage{
+  display:inline-block;
+  margin:0px 16px 0px 16px;
+  padding:0px;
+}
+#lastPage{
+  display:inline-block;
+  margin:0px 22px 0px 0px;
+  padding:0px;
+}
+#buttomSearch{
+  display:inline-block;
+  margin:0px;
+  padding:0px;
+}
+#buttomSearch span{
+  display:inline-block;
+  margin:0px;
+  padding:0px;
+  font-size:14px;
+  font-family:"MicrosoftYaHeiLight";
+  color:#363636;
+}
+#buttomSearch span input[type="text"]{
+  width:48px;
+  height:23px;
+  border-radius:5px;
+  border:1px solid #e1e1e1;
+  display:inline-block;
+  margin:0px 5px 0px 5px;
+  padding:0px;
+}
+#buttomSearch span input[type="button"]{
+    width: 48px;
+    height: 23px;
+    margin-left:5px;
+    font-family: "MicrosoftYaHei";
+    font-size: 14px;
+    color:#ffffff; 
+    background-color:#31c978;
+    border: 1px solid #31c978;
+    border-radius: 5px;
+    vertical-align: bottom;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #989898!important;
+    text-align:center;
+}
+
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #989898!important;
+    text-align:center;
+}
+
+input:-ms-input-placeholder{
+    color: #989898e!important;
+    text-align:center;
+}
+
+input::-webkit-input-placeholder{
+    color: #989898!important;
+    text-align:center;
 }
 #Footer{
 	margin-top: 100px;
-	width: 1920px;
 	height: 50px;
 	background-color: rgb(78,78,78);
 }
@@ -363,4 +511,26 @@ body{
 	color: rgb(255,255,255);
 	font-size: 14px; 
 }
-
+#main,#ul{
+  padding:0px;
+  width:100px;
+  list-style-type:none;  
+  margin:0px;
+  border:1px solid #ccc;
+  box-shadow:0 0 3px #aaa;
+}
+#div{
+  display:none;
+  position: absolute;
+}
+#ul li:hover{
+  background-color:#aaa;
+}
+#content,#tan{
+  display:inline-block;
+}
+#tan{
+  float:right;
+}
+.select > div{    
+  width: 100px;}
