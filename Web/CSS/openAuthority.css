@@ -309,6 +309,7 @@ input::-webkit-input-placeholder{
   color: #363636;
   vertical-align: middle;
   border: solid 1px #e1e1e1; 
+  text-align: -webkit-center;
 }
 #Table_4{
   width:1160px;
@@ -510,4 +511,26 @@ input::-webkit-input-placeholder{
 	color: rgb(255,255,255);
 	font-size: 14px; 
 }
-
+#main,#ul{
+  padding:0px;
+  width:100px;
+  list-style-type:none;  
+  margin:0px;
+  border:1px solid #ccc;
+  box-shadow:0 0 3px #aaa;
+}
+#div{
+  display:none;
+  position: absolute;
+}
+#ul li:hover{
+  background-color:#aaa;
+}
+#content,#tan{
+  display:inline-block;
+}
+#tan{
+  float:right;
+}
+.select > div{    
+  width: 100px;}

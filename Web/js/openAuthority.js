@@ -18,7 +18,7 @@ function getTable(a,b,c){
     var e;//e=0为表格一 e=1为表格四 -1是表格2
 	$.ajax({
 		type:"POST",
-		url:"http://n8qfwp.natappfree.cc/openAuthority",
+		url:"http://defsg4.natappfree.cc/openAuthority",
 		success:function(all_data){
 			console.log(all_data);
 			var data=all_data.data;
@@ -74,29 +74,31 @@ function getTable(a,b,c){
 							<td class="authorityAcross">\
 								<img src="images/tick.png" onclick="changImg(this)">\
 							</td>\
-							<td class="select"><select name="selectRank" onchange="openOrNot(this)">\
-							<option value="one" selected = "selected">一级</option>\
-							<option value="two">二级</option>\
-							</select></td>';
+							<td class="select">\<div>\
+    <div id="main"  onclick="clickThis()">\
+      <div id="content">一级</div>\
+      <div id="tan">▶</div>\
+    </div>\
+    <div id="div">\
+      <ul id="ul">\
+        <li onclick="change(this,0)">一级</li>\
+        <li onclick="change(this,1)">二级</li>\
+      </ul>\
+    </div>\
+</div>\
+</td>';
                 	tbody.appendChild(newTr);//增加tr
                     element=newTr.getElementsByTagName("td");
                     element[0].innerHTML=className;//显示建筑名
                     tdImg=element[1].getElementsByTagName("img")[0];//获取图片
-                    var one,two;//1级和2级 
-                    $selectTwo=$(element[2]).find("select").find("option");
-                    one=$selectTwo[0];
-                    two=$selectTwo[1];
                     //获得权限级别
                     if(canUse==0){
-                        $(one).attr("selected","selected");  
-            	        $(two).removeAttr("selected");
+            	        $("#content").HTML="一级";
                     }else if(canUse==1){
-                    	$(two).attr("selected","selected");
-               	        $(one).removeAttr("selected");
+                    	$("#content").HTML="二级";
                     }else if(canUse==-1){
-                        $(one).removeAttr("selected");
-                        $(two).removeAttr("selected");
-                        $(tdImg).attr("src","images/frame.png");
+                        $(tdImg).attr("src","images/wrong.png");
+                        $("#main").removeAttr("onclick");
                     }
                     $("#Table_2").show();
                     $("#Table_1").hide();
@@ -151,33 +153,33 @@ function authorityClick(e){//e==0时为建筑，e==1为用户，e=-1时为教室
 	if(e==-1){$("#Table_2").show();$("#Table_4").hide();$("#Table_1").hide();$("#Search input[type='text']").val("");};//参数为-1，只显示表格2
 }
 function changImg(e){//触发事件的元素
-	var img,$select,selectReset;//存src,selectReset重置
+	var img,$select//存src,selectReset重置
 	img=e.getAttribute("src");//获取src
-	$select=$(e).parent().parent().find("td").find("select");
+	$select=$("#content")
 	if(img=="images/tick.png"){
 		e.setAttribute("src","images/wrong.png");
-		$select.attr("disabled","disabled");
-	    $select.find("option:selected").removeAttr("selected");
-	    selectReset=$(".select select option[value='one']");
-        selectReset.attr("selected","selected");
+        $("#main").removeAttr("onclick");
+        $("#div").hide();
+        $("#content").HTML="一级";
 	}else{
 	    e.setAttribute("src","images/tick.png");
-	    $select.removeAttr("disabled");
+	    $("#main").attr("onclick","clickThis()");
     };//重置
 	openOrNot(e);
 }
 function openOrNot(e){//触发事件的元素 表格2的开放权限
-	var trID,imgSrc,selectValue,b;//获取点击所在tr的id,imgSrc为图片的src,selectValue是选择的级别,b为给后台的级别
+	console.log(e);
+    var trID,imgSrc,selectValue,b;//获取点击所在tr的id,imgSrc为图片的src,selectValue是选择的级别,b为给后台的级别
 	$trID=$(e).parent().parent();//获取所在的tr
 	trID=$trID[0].getAttribute("value");//获取点击所在tr的id
-	imgSrc=$trID.find("td").find("img").attr("src");//获取点击所在tr的src
-	selectValue=$trID.find("td").find("option:selected").val();//获取下拉框的value
+	imgSrc=$(e).attr("src");//获取点击所在tr的src
+	selectValue=$("#content").text()//获取文本值
 	if(imgSrc=="images/wrong.png"){b=-1;};//开启
-	if(imgSrc=="images/tick.png"&&selectValue=="one"){b=0;};//所有人
-	if(imgSrc=="images/tick.png"&&selectValue=="two"){b=1;};//老师
+	if(imgSrc=="images/tick.png"&&selectValue=="一级"){b=0;};//所有人
+	if(imgSrc=="images/tick.png"&&selectValue=="二级"){b=1;};//老师
 	$.ajax({
 		type:"POST",
-		url:"http://n8qfwp.natappfree.cc/openAuthority",
+		url:"http://defsg4.natappfree.cc/openAuthority",
 		data:{
 			target:"building_change",
 			id:trID,
@@ -396,3 +398,22 @@ function search(input){//输入框元素
 	};//判断表格状态
 
 }
+function clickThis(){
+  if($("#div").css("display")=="none"){
+    $("#tan").text("▶");
+    $("#div").slideDown();
+  }else{
+    $("#tan").text("◀");
+    $("#div").slideUp();
+  }}//隐藏和打开框
+function change(e,p){
+  var a=$(e).text();
+  $("#content").text(a);
+  if($("#div").css("display")!=="none"){
+   $("#div").slideUp();
+   // authorityChange(e,p);
+   var $tr=$(e).parent().parent().parent().parent().parent();
+   var img=$tr.find("td").find("img")[0];
+   openOrNot(img);
+   }
+}//传数据给后台的判断

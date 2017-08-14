@@ -43,16 +43,18 @@ function show_element(e,ok,table){  //e为当前函数
 	var Id= $(e).parent().parent().attr('value');
 		$.ajax({
 			 type:"POST",
-			 url:"http://bkxjjh.natappfree.cc/seeAuthority",
+			 url:"http://defsg4.natappfree.cc/seeAuthority",
 			 data:{
 				target:'updata',
 				status:ok,
 				id:Id,
 			 },
+			 async:false,
 			 success:function(u){
+			 	console.log("show_element");
 			 	conflict(e,u,table);
 			 }
-			})
+		})
     e.onClick=null;
 }
 //移除特效
@@ -88,8 +90,9 @@ function second(e,can){
 function getTable(p,page){//第一个参数为表格，第二个参数为页数-1
 	$.ajax({
 			type:"POST",
-			url:"http://bkxjjh.natappfree.cc/seeAuthority",
+			url:"http://defsg4.natappfree.cc/seeAuthority",
 			success:function importTable_1(data){
+				console.log("getTable")
 	                    var a,b,c,d,e,f,g,reset;
                         var i,element,elementParent;
                         	if(p==0){elementParent=document.getElementById("tableTbody");elementParent.innerHTML='<tr id="header">\
@@ -170,13 +173,13 @@ function getTable(p,page){//第一个参数为表格，第二个参数为页数-
     	                    g=data[i].reason;
     	                    element[5].innerHTML=g;////,g用来与事由匹配
     	                }
-    	                
                     },
 			data:{
 				target:'getdata',
 				status:p,
 				yeshu:page,
-			}
+			},
+			async:false,
 		});
 }
 //点击未通过触发的行为
@@ -234,7 +237,7 @@ function waiting(){
 // function page(p){
 // 	$.ajax({
 // 		type:"POST",
-// 		url:"http://bkxjjh.natappfree.cc/seeAuthority",
+// 		url:"http://defsg4.natappfree.cc/seeAuthority",
 // 		data:{
 // 				target:'num',
 // 				status:p,
@@ -263,7 +266,6 @@ function conflict(shu,data,table){
 			g[2].innerHTML=d;
 			h=document.getElementById("oTableP");
 			h.innerHTML=a+"的申请有如下冲突：";
-			console.log(data.data);
             addTable(data.data);
 		}
 		if(data.msg=="success"){
@@ -271,7 +273,7 @@ function conflict(shu,data,table){
 		}
 	}else{
 		first(shu,table);
-	}
+	};
 }
 // var canK,canTable;
 //创建悬浮框
@@ -349,8 +351,6 @@ function confirm(){
 	var oTable=document.getElementById("onTable");
 	document.body.removeChild(oMask);
 	document.body.removeChild(oTable);
-	getTable(0,0);
-
 }
 //悬浮窗与表格对应添加
 function addTable(a){
@@ -386,7 +386,7 @@ function confirmData(now){
 	var Id= $(now).parent().parent().attr('value');
 	$.ajax({
 	type:"POST",
-	url:"http://bkxjjh.natappfree.cc/seeAuthority",
+	url:"http://defsg4.natappfree.cc/seeAuthority",
 	data:{
 	        target:'updata',
 		    status:-1,
@@ -394,7 +394,7 @@ function confirmData(now){
 		    confirm:1,
 		},
 	success:function(data){
-		console.log(data);
+		getTable(0,0);
 	}
 })
 }
@@ -410,7 +410,7 @@ function changeImg(){
 function page(p){
 	$.ajax({
 		type:"POST",
-		url:"http://bkxjjh.natappfree.cc/seeAuthority",
+		url:"http://defsg4.natappfree.cc/seeAuthority",
 		data:{
 				target:'num',
 				status:p,
