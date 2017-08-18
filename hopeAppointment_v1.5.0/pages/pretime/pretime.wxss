@@ -1,0 +1,43 @@
+/* pretime.wxss */
+
+.header-img {
+  height: 340rpx;
+  width: 750rpx;
+}
+
+.message {
+  margin: 30rpx 0;
+}
+
+.message-item {
+  padding: 0 40rpx;
+  height: 80rpx;
+  border-bottom: 2rpx solid rgba(178, 178, 178, 0.2);
+  font-size: 32rpx;  
+}
+
+.message-item:first-child {
+  border-top: 2rpx solid rgba(178, 178, 178, 0.2);
+  margin-top: 20rpx;
+}
+
+.message-item-content {
+  display: block;
+  float: left;
+  line-height: 80rpx;
+  width: 180rpx;
+}
+
+.content-view {
+  line-height: 80rpx;
+  width: 300rpx;
+  text-align: center;
+  margin-left: 80rpx;
+  display: inline-block;
+  color: #b2b2b2;
+}
+
+.startfind {
+  width: 690rpx;
+  margin-top: 80rpx;
+}

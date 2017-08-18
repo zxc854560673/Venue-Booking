@@ -1,0 +1,35 @@
+<!--historydetail.wxml-->
+<view class="room-details">
+  <text class="room-name">{{building_name}} {{classroom_name}}</text>
+  <view class="room-details-list">
+    <image class="main-icon" src="../../../../pic/icon/org.png"></image>
+    <text>组织：{{organization}}</text>
+  </view>
+  <view class="room-details-list">
+    <image class="main-icon" src="../../../pic/icon/smartphone.png"></image>
+    <text>电话：{{phone_num}}</text>
+  </view>
+  <view class="room-details-list ">
+    <image class="main-icon" src="../../../pic/icon/apply_time.png"></image>
+    <text>申请日期：{{apply_time}}</text>
+  </view>
+  <view class="room-details-list">
+    <image class="main-icon" src="../../../pic/icon/time.png"></image>
+    <text>使用日期：{{apply_for_time}}</text>
+  </view>
+
+  <view class="room-details-list">
+    <image class="main-icon" src="../../../pic/icon/reason.png"></image>
+    <text>申请理由：{{reason}}</text>
+  </view>
+  <view class="operation" wx:if="{{status == 0}}">
+      <button type="default" class="button-style" disabled bindtap="agree">未审核</button>  
+     <!-- <button type="warn" class="button-style" id="{{id}}" bindtap="cancel">取消预约</button>  -->
+  </view>
+  <view class="operation" wx:if="{{status == -1}}">
+    <button type="primary" class="button-style" disabled bindtap="agree">已批准</button>
+  </view>
+  <view class="operation" wx:if="{{status == 1}}">
+    <button type="warn" class="button-style" disabled bindtap="agree">未批准</button>
+  </view>
+</view>

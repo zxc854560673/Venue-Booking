@@ -1,0 +1,8 @@
+<!--alert.wxml-->
+<view class="success">
+  <image src="../../../pic/icon/finish.png"></image>
+  <view class="success-done">操作成功</view>
+  <text>已完成教室预约申请的提交</text>
+  <button type="primary" bindtap="toNextPage" class="finish" data-status="{{item.status}}">完成</button>
+  <button type="default" bindtap="toPreviousPage" class="success-revise">重新修改</button>
+</view>

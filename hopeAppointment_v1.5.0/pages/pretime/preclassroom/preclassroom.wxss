@@ -1,0 +1,40 @@
+/* preclassroom.wxss */
+.header-contain {
+  display: flex;
+  justify-content: space-between;
+}
+.picker-contain {
+  width: 250rpx;
+  height: 90rpx;
+}
+
+.classroom-list {
+  height: 240rpx;
+  border-bottom: 2rpx solid #b2b2b2;
+  /* border-bottom: 2rpx solid rgba(178, 178, 178, 0.2); */
+}
+
+.clasroom-list-img {
+  width: 200rpx;
+  height: 200rpx;
+  float: left;
+  padding: 20rpx 20rpx 20rpx 30rpx;
+}
+
+.classroom-list-right {
+  float: left;
+  padding: 20rpx 0 20rpx 20rpx;
+  height: 200rpx;
+}
+
+.classroom-list-right .classroom-name {
+  font-size: 34rpx;
+  font-weight: bold;
+  display: block;
+  padding: 10rpx 0;
+}
+
+.classroom-list-right-capacity {
+  display: block;
+  padding-bottom: 8rpx;
+}

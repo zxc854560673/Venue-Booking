@@ -1,0 +1,39 @@
+/* about.wxss */
+
+.userinfo-logo {
+  width: 240rpx;
+  height: 240rpx;
+  display: block;
+  margin: 40rpx auto;
+}
+
+.message {
+  margin: 30rpx 0;
+  display: block;
+}
+
+.message-item {
+  vertical-align: middle;
+  padding: 0 40rpx;
+  height: 80rpx;
+  border-bottom: 2rpx solid rgba(178, 178, 178, 0.2);
+}
+
+.message-item:first-child {
+  border-top: 2rpx solid rgba(178,178,178,.2); 
+  margin-top: 60rpx;
+}
+
+.message-item-content {
+  float: left;
+  line-height: 80rpx;
+  width: 180rpx;
+  font-size: 32rpx;
+}
+
+.message-item-icon {
+  float: right;
+  height: 30rpx;
+  width: 30rpx;
+  padding: 25rpx 40rpx;
+}
