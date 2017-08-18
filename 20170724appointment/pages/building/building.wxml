@@ -1,0 +1,26 @@
+<!--building.wxml-->
+<view class="container">
+  <!-- 建筑物列表 -->
+  <block wx:for="{{buildings}}" wx:key="id">
+    <view class="building" id="{{item.id}}" bindtap="toNextPage">
+      <view class="building-list">
+        <image class="building-list-img" src="{{item.src}}"></image>
+        <view class="building-list-text">
+          <view class="building-name">{{item.name}}</view>
+          <view>
+            <image class="main-icon" src="../../pic/icon/map.png"></image>
+            <text>{{item.address}}</text>
+          </view>
+          <view>
+            <image class="main-icon" src="../../pic/icon/people.png"></image>
+            <text>{{item.capacity}}</text>
+          </view>
+          <view>
+            <image class="main-icon" src="../../pic/icon/phone.png"></image>
+            <text>{{item.phone}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

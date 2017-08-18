@@ -1,0 +1,140 @@
+/* time.wxss */
+
+.time-head {
+  border-bottom: 2rpx solid rgba(178, 178, 178, 0.2);
+}
+
+.time-head-contain {
+  margin: 30rpx;
+}
+
+.title {
+  font-size: 34rpx;
+  font-weight: bold;
+  margin: 30rpx 0;
+}
+
+.icon {
+  /* height: 60rpx; */
+  margin-bottom: 28rpx;
+}
+
+.but-contain {
+  border-bottom: 2rpx solid rgba(178, 178, 178, 0.2);
+  height: 90rpx;
+}
+
+.but {
+  height: 90rpx;
+  line-height: 90rpx;
+}
+
+.but text {
+  font-size: 34rpx;
+  margin-left: 30rpx;
+}
+
+switch, picker {
+  float: right;
+  margin-right: 30rpx;
+  font-size: 34rpx;
+}
+
+/*表单部分*/
+
+.flex {
+  flex-direction: column;
+  margin: 60rpx 30rpx;
+  width: 100%;
+}
+
+/* .flex .item {
+  flex: 1;
+} */
+
+.content-view {
+  line-height: 80rpx;
+  width: 300rpx;
+  text-align: center;
+  margin-left: 80rpx;
+  display: inline-block;
+  color: #b2b2b2;
+}
+
+.service_selection {
+  text-align: center;
+  background: #fff;
+}
+
+.service_selection label {
+  background: #f0f1ec;
+}
+
+/* .service_selection .is_checked {
+  color: #48c23d;
+} */
+
+.info, .box, .boxc {
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-top: 2rpx solid #b2b2b2;
+  border-bottom: 2rpx solid #b2b2b2;
+  float: left;
+}
+
+.checkbox {
+  border-top: 2rpx solid #b2b2b2;
+}
+
+.info {
+  width: 420rpx;
+  border-right: 2rpx solid #b2b2b2;
+  border-left: 2rpx solid #b2b2b2;
+}
+
+.box {
+  width: 270rpx;
+  border-right: 2rpx solid #b2b2b2;
+}
+
+.service_selection .is_checked .box {
+  background-color: #48c23d;
+}
+
+.boxc {
+  color: grey;
+  background-color: rgba(178, 178, 178, 0.4);
+  width: 270rpx;
+  border-right: 2rpx solid #b2b2b2;
+}
+
+.message {
+  margin: 30rpx 0;
+}
+
+.message-item {
+  padding: 0 30rpx;
+  height: 80rpx;
+  border-bottom: 2rpx solid rgba(178, 178, 178, 0.2);
+}
+
+.message-item:first-child {
+  border-top: 2rpx solid rgba(178, 178, 178, 0.2);
+  margin-top: 60rpx;
+}
+
+.message-item text {
+  float: left;
+  line-height: 80rpx;
+  width: 180rpx;
+}
+
+input {
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+button {
+  width: 690rpx;
+}

@@ -1,0 +1,18 @@
+<!--about.wxml-->
+<view class="container">
+  <image class="userinfo-logo" src="../../../pic/icon/logo.png"></image>
+  <view class="message">
+    <view class="message-item">
+      <text class="message-item-content">版本号</text>
+      <image class="message-item-icon" src="../../../pic/icon/arrowright.png"></image>
+    </view>
+    <view class="message-item">
+      <text class="message-item-content">功能介绍</text>
+      <image class="message-item-icon" src="../../../pic/icon/arrowright.png"></image>
+    </view>
+    <view class="message-item">
+      <text class="message-item-content">联系我们</text>
+      <image class="message-item-icon" src="../../../pic/icon/arrowright.png"></image>
+    </view>
+  </view>
+</view>

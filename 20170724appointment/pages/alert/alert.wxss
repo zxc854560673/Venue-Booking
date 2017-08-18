@@ -1,0 +1,31 @@
+/* alert.wxss */
+.success {
+  margin: 30rpx;
+}
+
+image {
+  width: 200rpx;
+  height: 200rpx;
+  display: block;
+  padding: 80rpx 0 50rpx 0; 
+  margin: 0 auto;
+}
+
+.success-done {
+  font-size: 40rpx;
+  text-align: center;
+  font-weight: bold;
+}
+
+text {
+  display: block;
+  text-align: center;
+  font-size: 26rpx;
+  color: #b2b2b2;
+  margin-top: 40rpx;
+  margin-bottom: 60rpx;
+}
+
+.success-finish {
+  margin-bottom: 30rpx;
+}

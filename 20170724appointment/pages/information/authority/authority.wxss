@@ -1,0 +1,48 @@
+/* pages/information/authority/history.wxss */
+.classroom-list-contain {
+   border-bottom: 2rpx solid rgba(178, 178, 178, 0.6); 
+}
+
+.clasroom-list-img {
+  width: 140rpx;
+  height: 140rpx;
+  float: left;
+  padding: 20rpx 20rpx 20rpx 30rpx;
+}
+
+.classroom-list-right {
+  float: left;
+  padding: 20rpx 0 0 20rpx;
+}
+
+.classroom-list-right .classroom-name {
+  font-size: 34rpx;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+.classroom-list-right-capacity {
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+.classroom-list-right-capacity text {
+  display: block;
+}
+
+.operation {
+  display: inline-block;
+  margin-left: 200rpx;
+}
+
+.button-style {
+  width: 140rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 36rpx;
+  padding: 0;
+  margin-top: 0;
+  margin-left: 20rpx;
+  float: left;
+}

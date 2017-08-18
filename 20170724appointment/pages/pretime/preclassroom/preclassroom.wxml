@@ -1,0 +1,17 @@
+<!--preclassroom.wxml-->
+<view class="container" wx:if="{{listhide}}">
+  <block wx:for="{{classrooms}}">
+    <view class="classroom-list" id="{{item.id}}" bindtap="toNextPage">
+      <image class="clasroom-list-img" src="{{item.src}}"></image>
+      <view class="classroom-list-right">
+        <text class="classroom-name">{{item.name}}</text>
+        <view class="classroom-list-right-capacity">
+          <image class="main-icon classroom-list-right-icon" src="../../../pic/icon/people.png"></image>
+          <text>{{item.capacity}}</text>
+        </view>
+        <image class="main-icon classroom-list-right-icon" src="../../../pic/icon/equip.png"></image>
+        <text>{{item.intro}}</text>
+      </view>
+    </view>
+  </block>
+</view>

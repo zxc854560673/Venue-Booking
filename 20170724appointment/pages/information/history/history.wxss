@@ -1,0 +1,71 @@
+/* pages/information/history/history.wxss */
+
+.classroom-list-contain {
+  border-bottom: 2rpx solid rgba(178, 178, 178, 0.6);
+}
+
+.clasroom-list-img {
+  width: 140rpx;
+  height: 140rpx;
+  float: left;
+  padding: 20rpx 20rpx 20rpx 30rpx;
+}
+
+.classroom-list-right {
+  float: left;
+  padding: 20rpx 0 0 20rpx;
+  width: 510rpx;
+  text-overflow: ellipsis;    
+}
+
+.classroom-list-right .classroom-name {
+  font-size: 34rpx;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+.classroom-list-right-capacity {
+  display: block;
+  margin-bottom: 8rpx;
+  text-overflow: ellipsis;    
+}
+
+.classroom-list-right-capacity text {
+  /* width: 458rpx; */
+  display: inline-block;
+  text-overflow: ellipsis;  
+}
+
+.operation {
+  display: block;
+  margin: 0 30rpx;
+  clear: both;
+  float: right;
+}
+
+.button-style {
+  width: 140rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 30rpx;
+  padding: 0;
+  margin: 0 30rpx 20rpx 0;
+  float: right;
+}
+
+.loading {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.loading-icon {
+  display: inline-block;
+}
+
+.loading-content {
+   margin: 8rpx auto; 
+  text-align: center;
+  color: #b2b2b2;
+  display: inline-block;
+}

@@ -1,0 +1,16 @@
+/* historydetail.wxss */
+.room-details {
+  margin: 30rpx;
+}
+.room-name {
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.room-details-list {
+  margin-top: 30rpx;
+}
+
+.button-style {
+  margin-top: 40rpx;
+}
