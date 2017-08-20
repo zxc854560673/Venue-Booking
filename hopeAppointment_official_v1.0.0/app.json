@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/building/building",
+    "pages/information/information",
+    "pages/time/time",
+    "pages/logs/logs",
+    "pages/classroom/classroom",
+    "pages/information/about/about",
+    "pages/information/account/account",
+    "pages/information/history/history",
+    "pages/pretime/pretime",
+    "pages/pretime/preclassroom/preclassroom",
+    "pages/information/historydetail/historydetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#f8f8f8",
+    "navigationBarTitleText": "青朴课室预约",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/building/building",
+        "text": "预约场地",
+        "iconPath": "pic/icon/footer_build_gray.png",
+        "selectedIconPath": "pic/icon/footer_build_green.png"
+      },
+      {
+        "pagePath": "pages/pretime/pretime",
+        "text": "预约时间",
+        "iconPath": "pic/icon/footer_time_gray.png",
+        "selectedIconPath": "pic/icon/footer_time_green.png"
+      },
+      {
+        "pagePath": "pages/information/information",
+        "text": "我的",
+        "iconPath": "pic/icon/footer_my_gray.png",
+        "selectedIconPath": "pic/icon/footer_my_green.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

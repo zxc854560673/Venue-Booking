@@ -1,0 +1,38 @@
+<!--pages/information/history/history.wxml-->
+<view class="container" wx:if="{{listhide}}">
+  <view class="classroom-list-contain" wx:for="{{historys}}" id="{{item.id}}" bindtap="toNextPage">
+    <view class="classroom-list" id="{{item.id}}">
+      <image class="clasroom-list-img" src="{{item.src}}"></image>
+      <view class="classroom-list-right">
+        <text class="classroom-name">{{item.building_name}} {{item.classroom_name}}</text>
+        <view class="classroom-list-right-capacity">
+          <image class="main-icon classroom-list-right-icon" src="../../../pic/icon/org.png"></image>
+          <text class="classroom-list-right-text">{{item.organization}}</text>
+        </view>
+        <view class="classroom-list-right-capacity">
+          <image class="main-icon classroom-list-right-icon" src="../../../pic/icon/smartphone.png"></image>
+          <text>{{item.phone_num}}</text>
+        </view>
+      </view>
+      <view class="operation" wx:if="{{item.status == 0}}">
+        <button type="default" class="button-style" disabled bindtap="agree">未审核</button>
+        <button type="warn" class="button-style" id="{{item.id}}" bindtap="cancel">取消预约</button>
+      </view>
+      <view class="operation" wx:if="{{item.status == -1}}">
+        <button type="primary" class="button-style" disabled bindtap="agree">已批准</button>
+      </view>
+      <view class="operation" wx:if="{{item.status == 1}}">
+        <button type="warn" class="button-style" disabled bindtap="agree">未批准</button>
+      </view>
+    </view>
+  </view>
+  <block wx:if="{{hasMore}}">
+    <view wx:if="{{loadingMore}}" class="loading">
+       <image class="main-icon loading-icon" src="../../../pic/icon/loading.png"></image> 
+      <text class="loading-content">正在加载中...</text>
+    </view>
+    <view wx:else class="loading-content">
+      <text>没有更多了</text>
+    </view>
+  </block>
+</view>

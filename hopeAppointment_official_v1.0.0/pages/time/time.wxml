@@ -1,0 +1,101 @@
+<!--time.wxml-->
+<view class="container">
+  <view class="time-head">
+    <view class="time-head-contain">
+      <!--课室名称-->
+      <view class="title">{{classTitle}}</view>
+      <!--课室信息-->
+      <view class="icon">
+        <image class="main-icon" src="{{ad_src}}"></image><text>{{address}}</text></view>
+      <view class="icon">
+        <image class="main-icon" src="{{pe_src}}"></image><text>{{capacity}}</text></view>
+      <view class="icon">
+        <image class="main-icon" src="{{fa_src}}"></image><text>{{facility}}</text></view>
+      <view class="icon">
+        <image class="main-icon" src="{{te_src}}"></image><text>{{phone}}</text></view>
+    </view>
+  </view>
+  <!--批量预约-->
+  <view class="but-contain" wx:if="{{userIden>0}}" checked="{{switchChecked}}">
+    <view class="but">
+      <text>批量预约</text>
+      <switch bindchange="switch1Change" style="float:right" />
+    </view>
+  </view>
+  <!--显示批量预约的按钮-->
+ 
+  <view class="multi-contain" id="multiorder" wx:if="{{switchChecked}}">
+    <view class="but-contain">
+      <view class="but">
+        <text>开始日期</text>
+         <picker mode="date" value="{{startdate}}" start="{{date}}" end="{{maxdate1}}" bindchange="bindDateChange1">
+      <image class="message-item-icon" src="../../../pic/icon/arrowright.png"></image>
+        <text class="content-view">{{startdate}}</text>
+      </picker>
+      </view>
+    </view>
+    <view class="but-contain">
+      <view class="but">
+        <text>结束日期</text>
+         <picker mode="date" value="{{enddate}}" start="{{startdate}}" end="{{maxdate1}}" bindchange="bindDateChange2">
+      <image class="message-item-icon" src="../../../pic/icon/arrowright.png"></image>
+        <text class="content-view">{{enddate}}</text>
+      </picker>
+      </view>
+    </view>
+    <view class="but-contain">
+      <view class="but">
+        <text>选择频率</text>
+        <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+          <image class="message-item-icon" src="../../../pic/icon/arrowright.png"></image>
+          <text class="content-view">{{multiArray[0][multiIndex[0]]}}  {{multiArray[1][multiIndex[1]]}}  {{multiArray[2][multiIndex[2]]}}</text>
+        </picker>
+      </view>
+    </view>
+  </view>
+
+  <!--选择时间-->
+  <view class="but-contain" id="choosetime" style="display: block" wx:if="{{!switchChecked}}">
+    <view class="but">
+      <text>选择日期</text>
+      <picker mode="date" value="{{date}}" start="{{date}}" end="{{maxdate}}" bindchange="bindDateChange">
+      <image class="message-item-icon" src="../../../pic/icon/arrowright.png"></image>
+        <text class="content-view">{{date}}</text>
+      </picker>
+    </view>
+  </view>
+
+  <!--表单部分-->
+  <checkbox-group bindchange="checkboxChange">
+    <view class="service_selection flex">
+      <block wx:for="{{list}}">
+        <view class="item">
+          <label class="checkbox {{item.checked?'is_checked':''}}"> 
+              <checkbox value="{{item.value}}" checked="{{item.checked}}" hidden="false" />
+              <view class="info">{{item.class}}({{item.time}})</view>
+              <view class="box" wx:if="{{item.status !== -1}}">当前预约人数:{{item.status}}</view>
+              <view class="boxc" disabled="true" wx:if="{{item.status == -1}}">已被预约</view>
+          </label>
+        </view>
+      </block>
+    </view>
+  </checkbox-group>
+
+
+  <!--信息部分-->
+  <view class="message">
+    <view class="message-item">
+      <text>手机号</text>
+      <input type="number" confirm-type="next" maxlength="11" placeholder="请输入手机号" bindchange="tel"></input>
+    </view>
+    <view class="message-item">
+      <text>单位</text>
+      <input type="text" confirm-type="next" maxlength="10" placeholder="请输入预约单位" bindchange="department"></input>
+    </view>
+    <view class="message-item">
+      <text>申请事由</text>
+      <input type="text" confirm-type="next" maxlength="15" placeholder="请输入申请事由" bindchange="reason"></input>
+    </view>
+  </view>
+  <button type="primary" bindtap="submit">提交</button>
+</view>

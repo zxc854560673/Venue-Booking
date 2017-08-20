@@ -1,0 +1,22 @@
+<!--information.wxml-->
+<view class="container">
+  <view bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}，欢迎你！</text>
+  </view>
+<view class="message">
+  <view class="message-item" bindtap="mainInfo">
+    <text class="message-item-content">账户信息</text>
+    <image class="message-item-icon" src="../../../pic/icon/arrowright.png"></image>
+  </view>
+  <view class="message-item" bindtap="history">
+    <text class="message-item-content">预约记录</text>
+    <image class="message-item-icon" src="../../../pic/icon/arrowright.png"></image>
+  </view>
+  <view class="message-item" bindtap="aboutUs">
+    <text class="message-item-content">关于我们</text>
+    <image class="message-item-icon" src="../../../pic/icon/arrowright.png"></image>
+  </view>
+</view>
+<!-- <button type="warn" bindtap="logout" class="logout">退出登录</button> -->
+</view>
